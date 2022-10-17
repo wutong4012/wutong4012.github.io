@@ -9,8 +9,38 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Practice makes Perfect</description>
-    <pubDate>Sun, 16 Oct 2022 07:15:56 GMT</pubDate>
+    <pubDate>Mon, 17 Oct 2022 12:06:10 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>ReAct:Synergizing Reasoning and Acting in Language Models</title>
+      <link>http://example.com/2022/10/17/ReAct/</link>
+      <guid>http://example.com/2022/10/17/ReAct/</guid>
+      <pubDate>Mon, 17 Oct 2022 12:00:52 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;ReAct-Synergizing-Reasoning-and-Acting-in-Language-Models&quot;&gt;&lt;a href=&quot;#ReAct-Synergizing-Reasoning-and-Acting-in-Language-Models&quot; clas</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="ReAct-Synergizing-Reasoning-and-Acting-in-Language-Models"><a href="#ReAct-Synergizing-Reasoning-and-Acting-in-Language-Models" class="headerlink" title="ReAct: Synergizing Reasoning and Acting in Language Models"></a><a href="http://arxiv.org/abs/2210.03629">ReAct: Synergizing Reasoning and Acting in Language Models</a></h2><h3 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h3><p><strong>“chain-of-thought” reasoning</strong>:</p><p>Uses its <strong>own internal</strong> representations to generate thoughts and is <strong>not grounded</strong> in the external world. This can lead to issues like <strong>fact hallucination</strong> and <strong>error propagation</strong> over the reasoning process.</p><p><strong>planning and acting in interactive environments</strong>:</p><p>do not employ language models to <strong>reason abstractly</strong> about high-level goals or maintain a <strong>working memory</strong> to support acting.</p><p>There have not been studies on how <strong>reasoning and acting can be combined in a synergistic manner</strong> for general task solving.</p><h3 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h3><p><strong>Action</strong>：refer to as a thought or a reasoning trace, does not affect the external environment.</p><p><strong>Thought</strong>: compose useful information by reasoning over the current context $c_t$, and update the context $c_{t+1}$  to support future reasoning or acting.</p><p><strong>PaLM-540B</strong>: is prompted with few-shot <strong>in-context examples</strong> to generate both domain-specific actions and free-form language thoughts.</p><h3 id="Knowledge-Intensive-Reasoning"><a href="#Knowledge-Intensive-Reasoning" class="headerlink" title="Knowledge-Intensive Reasoning"></a><strong>Knowledge-Intensive Reasoning</strong></h3><p><strong>Datasets</strong>: HotPotQA, FEVER</p><p><strong>Actions</strong>: search[<em>entity</em>], lookup[<em>string</em>], finish[<em>answer</em>]</p><p>only retrieve a small part. Force models to retrieve <strong>via explicit reasoning</strong> in language.</p><p><strong>ReAct Prompting</strong>: manually compose <em>ReAct</em>-format trajectories.</p><ol><li>use a combination of thoughts that decompose questions;</li><li>extract information from Wikipedia observations;</li><li>perform commonsense or arithmetic reasoning;</li><li>guide search reformulation and synthesize the final answer</li></ol><p><strong>Baselines</strong>: Standard prompting, Chain-of-thought prompting (<em>CoT</em>) &#x2F; self-consistency (<em>CoT-SC</em>),  Acting-only prompt (<em>Act</em>)</p><p><strong>Method</strong>: incorporate <em>ReAct</em> and <em>CoT-SC</em>, let the <strong>model decide</strong> when to switch to the other method.</p><p><strong>Finetuning</strong>: consider a bootstraping approach</p><p><strong>Conclusion</strong>:</p><ol><li>Hallucination is a serious problem for <em>CoT</em>, <em>ReAct</em> is more grounded, fact-driven, and trustworthy.</li><li><em>ReAct</em> repetitively generates the previous thoughts and actions, and fails to reason about what the proper next action to take and jump out of the loop.</li></ol><h3 id="Decision-Making"><a href="#Decision-Making" class="headerlink" title="Decision-Making"></a>Decision-Making</h3><p><strong>Datasets</strong>: ALFWorld, WebShop</p><p><strong>ReAct Prompting</strong>: randomly annotate three trajectories from the training set for each task type.</p><ol><li>decompose the goal</li><li>track subgoal completion</li><li>determine the next subgoal</li><li>reason via commonsense</li></ol><p><strong>Baselines</strong>: BUTLER</p><h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h3><p><em>ReAct</em> combined reasoning and action using an LLM applied to an interactive environment within a closed-loop system.</p><ol><li>the thoughts is free-form and unlimited, through which human annotation can induce specific policies for the LLM to follow;</li><li>the thoughts is abstract and diverse, including memory traces, strategization and error recovery;</li><li>the thoughts is sparse, <em>ReAct</em>  can decide when to think and avoid cluttering the LLM input history.</li></ol><p>Allow a human to inspect and edit ReAct’s reasoning traces.</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">论文精读</category>
+      
+      
+      <category domain="http://example.com/tags/reasoning%EF%BC%88chain-of-thought%EF%BC%89/">reasoning（chain-of-thought）</category>
+      
+      <category domain="http://example.com/tags/acting-action-plan/">acting(action plan)</category>
+      
+      <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
+      
+      
+      <comments>http://example.com/2022/10/17/ReAct/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>总结：政府与经济发展</title>

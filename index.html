@@ -165,6 +165,119 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/17/ReAct/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/caption.jpg">
+      <meta itemprop="name" content="Victor">
+      <meta itemprop="description" content="Practice makes Perfect">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Victor' s Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/17/ReAct/" class="post-title-link" itemprop="url">ReAct:Synergizing Reasoning and Acting in Language Models</a>
+        </h2>
+
+        <div class="post-meta">
+		
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-17 20:00:52 / 修改时间：20:06:10" itemprop="dateCreated datePublished" datetime="2022-10-17T20:00:52+08:00">2022-10-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">论文精读</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="ReAct-Synergizing-Reasoning-and-Acting-in-Language-Models"><a href="#ReAct-Synergizing-Reasoning-and-Acting-in-Language-Models" class="headerlink" title="ReAct: Synergizing Reasoning and Acting in Language Models"></a><a target="_blank" rel="noopener" href="http://arxiv.org/abs/2210.03629">ReAct: Synergizing Reasoning and Acting in Language Models</a></h2><h3 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h3><p><strong>“chain-of-thought” reasoning</strong>:</p>
+<p>Uses its <strong>own internal</strong> representations to generate thoughts and is <strong>not grounded</strong> in the external world. This can lead to issues like <strong>fact hallucination</strong> and <strong>error propagation</strong> over the reasoning process.</p>
+<p><strong>planning and acting in interactive environments</strong>:</p>
+<p>do not employ language models to <strong>reason abstractly</strong> about high-level goals or maintain a <strong>working memory</strong> to support acting.</p>
+<p>There have not been studies on how <strong>reasoning and acting can be combined in a synergistic manner</strong> for general task solving.</p>
+<h3 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h3><p><strong>Action</strong>：refer to as a thought or a reasoning trace, does not affect the external environment.</p>
+<p><strong>Thought</strong>: compose useful information by reasoning over the current context $c_t$, and update the context $c_{t+1}$  to support future reasoning or acting.</p>
+<p><strong>PaLM-540B</strong>: is prompted with few-shot <strong>in-context examples</strong> to generate both domain-specific actions and free-form language thoughts.</p>
+<h3 id="Knowledge-Intensive-Reasoning"><a href="#Knowledge-Intensive-Reasoning" class="headerlink" title="Knowledge-Intensive Reasoning"></a><strong>Knowledge-Intensive Reasoning</strong></h3><p><strong>Datasets</strong>: HotPotQA, FEVER</p>
+<p><strong>Actions</strong>: search[<em>entity</em>], lookup[<em>string</em>], finish[<em>answer</em>]</p>
+<p>only retrieve a small part. Force models to retrieve <strong>via explicit reasoning</strong> in language.</p>
+<p><strong>ReAct Prompting</strong>: manually compose <em>ReAct</em>-format trajectories.</p>
+<ol>
+<li>use a combination of thoughts that decompose questions;</li>
+<li>extract information from Wikipedia observations;</li>
+<li>perform commonsense or arithmetic reasoning;</li>
+<li>guide search reformulation and synthesize the final answer</li>
+</ol>
+<p><strong>Baselines</strong>: Standard prompting, Chain-of-thought prompting (<em>CoT</em>) &#x2F; self-consistency (<em>CoT-SC</em>),  Acting-only prompt (<em>Act</em>)</p>
+<p><strong>Method</strong>: incorporate <em>ReAct</em> and <em>CoT-SC</em>, let the <strong>model decide</strong> when to switch to the other method.</p>
+<p><strong>Finetuning</strong>: consider a bootstraping approach</p>
+<p><strong>Conclusion</strong>:</p>
+<ol>
+<li>Hallucination is a serious problem for <em>CoT</em>, <em>ReAct</em> is more grounded, fact-driven, and trustworthy.</li>
+<li><em>ReAct</em> repetitively generates the previous thoughts and actions, and fails to reason about what the proper next action to take and jump out of the loop.</li>
+</ol>
+<h3 id="Decision-Making"><a href="#Decision-Making" class="headerlink" title="Decision-Making"></a>Decision-Making</h3><p><strong>Datasets</strong>: ALFWorld, WebShop</p>
+<p><strong>ReAct Prompting</strong>: randomly annotate three trajectories from the training set for each task type.</p>
+<ol>
+<li>decompose the goal</li>
+<li>track subgoal completion</li>
+<li>determine the next subgoal</li>
+<li>reason via commonsense</li>
+</ol>
+<p><strong>Baselines</strong>: BUTLER</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h3><p><em>ReAct</em> combined reasoning and action using an LLM applied to an interactive environment within a closed-loop system.</p>
+<ol>
+<li>the thoughts is free-form and unlimited, through which human annotation can induce specific policies for the LLM to follow;</li>
+<li>the thoughts is abstract and diverse, including memory traces, strategization and error recovery;</li>
+<li>the thoughts is sparse, <em>ReAct</em>  can decide when to think and avoid cluttering the LLM input history.</li>
+</ol>
+<p>Allow a human to inspect and edit ReAct’s reasoning traces.</p>
+
+      
+    </div>
+
+    
+    
+    
+	
+	
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E5%85%AB%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -865,20 +978,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -924,7 +1037,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共13k字</span>
+  <span class="post-count">博客全站共13.4k字</span>
 </div>
 
 
