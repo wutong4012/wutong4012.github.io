@@ -34,9 +34,9 @@
       
       <category domain="http://example.com/tags/reasoning%EF%BC%88chain-of-thought%EF%BC%89/">reasoning（chain-of-thought）</category>
       
-      <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
-      
       <category domain="http://example.com/tags/question-answering/">question-answering</category>
+      
+      <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
       
       
       <comments>http://example.com/2022/10/17/paper2/#disqus_thread</comments>
@@ -64,9 +64,9 @@
       
       <category domain="http://example.com/tags/reasoning%EF%BC%88chain-of-thought%EF%BC%89/">reasoning（chain-of-thought）</category>
       
-      <category domain="http://example.com/tags/acting-action-plan/">acting(action plan)</category>
-      
       <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
+      
+      <category domain="http://example.com/tags/acting-action-plan/">acting(action plan)</category>
       
       
       <comments>http://example.com/2022/10/17/paper1/#disqus_thread</comments>
