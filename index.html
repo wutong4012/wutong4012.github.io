@@ -165,7 +165,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/17/ReAct/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/17/paper2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/caption.jpg">
@@ -179,7 +179,116 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/10/17/ReAct/" class="post-title-link" itemprop="url">ReAct:Synergizing Reasoning and Acting in Language Models</a>
+            <a href="/2022/10/17/paper2/" class="post-title-link" itemprop="url">Faithful Reasoning Using Large Language Models</a>
+        </h2>
+
+        <div class="post-meta">
+		
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-17 20:18:48 / 修改时间：20:32:54" itemprop="dateCreated datePublished" datetime="2022-10-17T20:18:48+08:00">2022-10-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">论文精读</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h3><blockquote>
+<p>comprises two fine-tuned LMs, one for <strong>selection</strong> and one for <strong>inference</strong>. The interleaved operation of these two components has a causal structure.</p>
+</blockquote>
+<img width="267px" src="\images\paper2-1.png"/>
+
+<p><strong>Selection-Inference</strong>:</p>
+<blockquote>
+<p>Selection model chooses a set of statements from the context. (<strong>selection</strong>)</p>
+</blockquote>
+<blockquote>
+<p>Inference model predicts an <strong>entailment</strong> by computing a statement that follows from the selection. (<strong>inference</strong>)</p>
+</blockquote>
+<p><strong>Halter</strong>:</p>
+<blockquote>
+<p>looks at the output of a Selection-Inference step <em>and</em> determines if there is sufficient information to answer the question.</p>
+</blockquote>
+<blockquote>
+<p>it cannot rely on knowledge embedded in its weights, but must depend on the <strong>reasoning trace</strong>.</p>
+</blockquote>
+<img width="567px" src="\images\paper2-2.png"/>
+
+<p><strong>Two-Stage Halter</strong>:</p>
+<ol>
+<li>predict whether the question can be answered given the current inference and the question.</li>
+<li>computes an answer given the final inference and minimal additional information.</li>
+</ol>
+<img width="567px" src="\images\paper2-3.png"/>
+
+<p><strong>Value Function</strong>($LM_{value}$): </p>
+<blockquote>
+<p>perform a <strong>step-level</strong> beam search on the reasoning traces to find the best candidate for answering the question.</p>
+</blockquote>
+<hr>
+<h3 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h3><blockquote>
+<p>Proof Writer and a question-answering version of EntailmentBank</p>
+</blockquote>
+<hr>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a target="_blank" rel="noopener" href="http://arxiv.org/abs/2208.14271">Faithful Reasoning Using Large Language Models</a></p>
+
+      
+    </div>
+
+    
+    
+    
+	
+	
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/17/paper1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/caption.jpg">
+      <meta itemprop="name" content="Victor">
+      <meta itemprop="description" content="Practice makes Perfect">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Victor' s Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/17/paper1/" class="post-title-link" itemprop="url">ReAct:Synergizing Reasoning and Acting in Language Models</a>
         </h2>
 
         <div class="post-meta">
@@ -221,7 +330,7 @@
 </blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/10/17/ReAct/#more" rel="contents">
+              <a class="btn" href="/2022/10/17/paper1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -947,7 +1056,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -960,7 +1069,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1006,7 +1115,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共13.4k字</span>
+  <span class="post-count">博客全站共13.6k字</span>
 </div>
 
 

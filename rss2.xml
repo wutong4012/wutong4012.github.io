@@ -9,13 +9,44 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Practice makes Perfect</description>
-    <pubDate>Mon, 17 Oct 2022 12:15:49 GMT</pubDate>
+    <pubDate>Mon, 17 Oct 2022 12:32:54 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title>Faithful Reasoning Using Large Language Models</title>
+      <link>http://example.com/2022/10/17/paper2/</link>
+      <guid>http://example.com/2022/10/17/paper2/</guid>
+      <pubDate>Mon, 17 Oct 2022 12:18:48 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Methodology&quot;&gt;&lt;a href=&quot;#Methodology&quot; class=&quot;headerlink&quot; title=&quot;Methodology&quot;&gt;&lt;/a&gt;Methodology&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;comprises two fine-tu</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h3><blockquote><p>comprises two fine-tuned LMs, one for <strong>selection</strong> and one for <strong>inference</strong>. The interleaved operation of these two components has a causal structure.</p></blockquote><img width="267px" src="\images\paper2-1.png"/><p><strong>Selection-Inference</strong>:</p><blockquote><p>Selection model chooses a set of statements from the context. (<strong>selection</strong>)</p></blockquote><blockquote><p>Inference model predicts an <strong>entailment</strong> by computing a statement that follows from the selection. (<strong>inference</strong>)</p></blockquote><p><strong>Halter</strong>:</p><blockquote><p>looks at the output of a Selection-Inference step <em>and</em> determines if there is sufficient information to answer the question.</p></blockquote><blockquote><p>it cannot rely on knowledge embedded in its weights, but must depend on the <strong>reasoning trace</strong>.</p></blockquote><img width="567px" src="\images\paper2-2.png"/><p><strong>Two-Stage Halter</strong>:</p><ol><li>predict whether the question can be answered given the current inference and the question.</li><li>computes an answer given the final inference and minimal additional information.</li></ol><img width="567px" src="\images\paper2-3.png"/><p><strong>Value Function</strong>($LM_{value}$): </p><blockquote><p>perform a <strong>step-level</strong> beam search on the reasoning traces to find the best candidate for answering the question.</p></blockquote><hr><h3 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h3><blockquote><p>Proof Writer and a question-answering version of EntailmentBank</p></blockquote><hr><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://arxiv.org/abs/2208.14271">Faithful Reasoning Using Large Language Models</a></p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">论文精读</category>
+      
+      
+      <category domain="http://example.com/tags/reasoning%EF%BC%88chain-of-thought%EF%BC%89/">reasoning（chain-of-thought）</category>
+      
+      <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
+      
+      <category domain="http://example.com/tags/question-answering/">question-answering</category>
+      
+      
+      <comments>http://example.com/2022/10/17/paper2/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>ReAct:Synergizing Reasoning and Acting in Language Models</title>
-      <link>http://example.com/2022/10/17/ReAct/</link>
-      <guid>http://example.com/2022/10/17/ReAct/</guid>
+      <link>http://example.com/2022/10/17/paper1/</link>
+      <guid>http://example.com/2022/10/17/paper1/</guid>
       <pubDate>Mon, 17 Oct 2022 12:00:52 GMT</pubDate>
       
       <description>&lt;h3 id=&quot;Motivation&quot;&gt;&lt;a href=&quot;#Motivation&quot; class=&quot;headerlink&quot; title=&quot;Motivation&quot;&gt;&lt;/a&gt;Motivation&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;“chain-of-thought” reasoning&lt;/strong&gt;:&lt;/p&gt;
@@ -38,7 +69,7 @@
       <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
       
       
-      <comments>http://example.com/2022/10/17/ReAct/#disqus_thread</comments>
+      <comments>http://example.com/2022/10/17/paper1/#disqus_thread</comments>
       
     </item>
     
