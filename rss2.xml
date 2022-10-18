@@ -9,8 +9,105 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Practice makes Perfect</description>
-    <pubDate>Mon, 17 Oct 2022 12:35:16 GMT</pubDate>
+    <pubDate>Tue, 18 Oct 2022 11:54:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>EVA2.0:Investigating Open-Domain Chinese Dialogue Systems with Large-Scale Pre-Training</title>
+      <link>http://example.com/2022/10/18/paper5/</link>
+      <guid>http://example.com/2022/10/18/paper5/</guid>
+      <pubDate>Tue, 18 Oct 2022 11:48:01 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;Models-and-Datasets&quot;&gt;&lt;a href=&quot;#Models-and-Datasets&quot; class=&quot;headerlink&quot; title=&quot;Models and Datasets&quot;&gt;&lt;/a&gt;Models and Datasets&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;WDC-Dialogue&lt;/strong&gt;: the largest Chinese dialogue dataset&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Chinese Dialogue Models&lt;/strong&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CDial-GPT → LCCC dataset collected from the Weibo Comments.&lt;/p&gt;
+&lt;p&gt;PLATO &amp;#x2F; PLATO-2 &amp;#x2F; PLATO-XL&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Models-and-Datasets"><a href="#Models-and-Datasets" class="headerlink" title="Models and Datasets"></a>Models and Datasets</h3><p><strong>WDC-Dialogue</strong>: the largest Chinese dialogue dataset</p><p><strong>Chinese Dialogue Models</strong>:</p><blockquote><p>CDial-GPT → LCCC dataset collected from the Weibo Comments.</p><p>PLATO &#x2F; PLATO-2 &#x2F; PLATO-XL</p></blockquote><span id="more"></span><h3 id="Data-Quality-Evaluation"><a href="#Data-Quality-Evaluation" class="headerlink" title="Data Quality Evaluation"></a>Data Quality Evaluation</h3><p>**Relevance Score **(<em>context (C), response (R)</em>):</p><img width="267px" src="\images\paper5-1.png"/><img width="267px" src="\images\paper5-2.png"/><p><strong>Fluency Score</strong> (using <strong>kenlm</strong>):</p><img width="267px" src="\images\paper5-3.png"/><p><strong>Entertainment Tendency</strong>:</p><blockquote><p>the ratio of dialogues involving Chinese stars, also reflects the domain diversity to some extent.</p></blockquote><h3 id="Experimental-Conclusion"><a href="#Experimental-Conclusion" class="headerlink" title="Experimental Conclusion"></a>Experimental Conclusion</h3><ol><li>the model with <strong>balanced layers</strong> (encode layers&#x3D;decode layers) performs the best.</li><li>if the roles that in datasets <strong>cannot</strong> be naturally distinguished, adding role information will <strong>hurts</strong> the model performance.</li><li><strong>pre-train from scratch</strong> better than further pre-trained from CPM, a long-document pre-trained generative model except on Knowledge Q&amp;As.</li><li>when <strong>combined with</strong> sampling, repetition control, and length penalty, <strong>beam search</strong> has relatively balanced performance.</li></ol><h3 id="Weaknesses"><a href="#Weaknesses" class="headerlink" title="Weaknesses"></a>Weaknesses</h3><p><strong>Consistency</strong>:</p><blockquote><p>intra-contradiction: contradictions within the response.</p><p>inter-contradiction: contradictions between the dialogue context and the response.</p></blockquote><p><strong>Solution</strong>: train a contradiction detection classifier to re-rank the generated responses.</p><p><strong>Problem</strong>: a lack of NLI datasets in Chinese.</p><p><strong>Knowledge</strong>:</p><blockquote><p>open-domain dialogues are often <em>knowledge-sparse</em>. So the knowledge skills of the pre-trained dialogue models are relatively limited.</p></blockquote><p><strong>Solution</strong>:</p><blockquote><p>Implicit: fine-tuning the pre-trained model on crowd-sourced knowledge-intensive dialogue datasets.</p><p>Explicit: incorporating information retrieval into generation systems.</p></blockquote><p><strong>Problem</strong>: require extensive human-annotated knowledge-grounded dialogue data.</p><p><strong>Safety</strong>:</p><blockquote><p>unsafe behaviors such as suicide risk ignorance and social bias.</p></blockquote><p>So</p><blockquote><blockquote><p>post-processing module of dialogue systems;</p><p>some methods based on safety detectors;</p><p>train models on <em>extra safety-augmentation</em> samples.</p></blockquote></blockquote><p><strong>Empathy</strong>:</p><p><strong>Solution</strong>: incorporating empathy-demanded semantic information</p><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://arxiv.org/abs/2203.09313">EVA2.0: Investigating Open-Domain Chinese Dialogue Systems with Large-Scale Pre-Training</a></p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">论文精读</category>
+      
+      
+      <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
+      
+      <category domain="http://example.com/tags/open-source-model/">open-source model</category>
+      
+      <category domain="http://example.com/tags/chinese-dialogue-model/">chinese dialogue model</category>
+      
+      
+      <comments>http://example.com/2022/10/18/paper5/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>ConceptNet infused DialoGPT for Underlying Commonsense Understanding and Reasoning in Dialogue Response Generation</title>
+      <link>http://example.com/2022/10/18/paper4/</link>
+      <guid>http://example.com/2022/10/18/paper4/</guid>
+      <pubDate>Tue, 18 Oct 2022 11:39:43 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;Knowledge-Graph-and-Datasets&quot;&gt;&lt;a href=&quot;#Knowledge-Graph-and-Datasets&quot; class=&quot;headerlink&quot; title=&quot;Knowledge Graph and Datasets&quot;&gt;&lt;/a&gt;Knowledge Graph and Datasets&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;ConceptNet&lt;/strong&gt;: &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;large-scale and multilingual commonsense knowledge graph that describes general human knowledge.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;CommonGen&lt;/strong&gt;: &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;a challenging dataset which includes concepts-sentences pairs. It is widely used to explicitly test machines for the ability of generative commonsense reasoning.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Knowledge-Graph-and-Datasets"><a href="#Knowledge-Graph-and-Datasets" class="headerlink" title="Knowledge Graph and Datasets"></a>Knowledge Graph and Datasets</h3><p><strong>ConceptNet</strong>: </p><blockquote><p>large-scale and multilingual commonsense knowledge graph that describes general human knowledge.</p></blockquote><p><strong>CommonGen</strong>: </p><blockquote><p>a challenging dataset which includes concepts-sentences pairs. It is widely used to explicitly test machines for the ability of generative commonsense reasoning.</p></blockquote><span id="more"></span><p><strong>Commonsense-Dialogues</strong>: </p><blockquote><p>involve much commonsense reasoning in the dialogue and help models produce more commonsense responses.</p></blockquote><h3 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h3><p><strong>Base Model</strong>: DialoGPT</p><blockquote><p>utilize the <strong>AdapterHub</strong> to integrate the Adapter layers into DialoGPT</p></blockquote><p><strong>Bias Random Walking</strong>: </p><blockquote><p>Starting with $c_0$, we firstly sample one concept as $c_1$ from its neighbors based on the normalized transition probability. Since starting searching $c_2$, we will bias the random walks by introducing search bias $α$.</p></blockquote><img width="267px" src="\images\paper4-1.png"/><p>The walk just transitioned from concept $t$ to concept $v$ and is now evaluating its next concept $x$.</p><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://arxiv.org/abs/2209.15109">ConceptNet infused DialoGPT for Underlying Commonsense Understanding and Reasoning in Dialogue Response Generation</a></p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">论文精读</category>
+      
+      
+      <category domain="http://example.com/tags/reasoning%EF%BC%88chain-of-thought%EF%BC%89/">reasoning（chain-of-thought）</category>
+      
+      <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
+      
+      <category domain="http://example.com/tags/response-generation/">response generation</category>
+      
+      
+      <comments>http://example.com/2022/10/18/paper4/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Think Before You Speak:Explicitly Generating Implicit Commonsense Knowledge for Response Generation</title>
+      <link>http://example.com/2022/10/18/paper3/</link>
+      <guid>http://example.com/2022/10/18/paper3/</guid>
+      <pubDate>Tue, 18 Oct 2022 11:32:48 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;Common-Dialogue-Response-Generation&quot;&gt;&lt;a href=&quot;#Common-Dialogue-Response-Generation&quot; class=&quot;headerlink&quot; title=&quot;Common Dialogue Response Generation&quot;&gt;&lt;/a&gt;&lt;strong&gt;Common Dialogue Response Generation&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;(&lt;em&gt;conditional language modeling&lt;/em&gt;)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;given a &lt;em&gt;history&lt;/em&gt; ($H$) consisting of a sequence of $n$  dialogue turns: $X_1, X_2, …, X_n$ (each turn refers to an utterance containing a sequence of $t_i$ tokens: $x_{i,1}, x_{i,2}, …, x_{i,ti}$) and a &lt;em&gt;response&lt;/em&gt; (R) sentence $Y$ comprised of a sequence of m tokens $y_1, y_2, …, y_m$.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img width=&quot;267px&quot; src=&quot;\images\paper3-1.png&quot;/&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Common-Dialogue-Response-Generation"><a href="#Common-Dialogue-Response-Generation" class="headerlink" title="Common Dialogue Response Generation"></a><strong>Common Dialogue Response Generation</strong></h3><p>(<em>conditional language modeling</em>)</p><blockquote><p>given a <em>history</em> ($H$) consisting of a sequence of $n$  dialogue turns: $X_1, X_2, …, X_n$ (each turn refers to an utterance containing a sequence of $t_i$ tokens: $x_{i,1}, x_{i,2}, …, x_{i,ti}$) and a <em>response</em> (R) sentence $Y$ comprised of a sequence of m tokens $y_1, y_2, …, y_m$.</p></blockquote><img width="267px" src="\images\paper3-1.png"/><span id="more"></span><h3 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h3><blockquote><p>introduce a new component to RG —— implicit knowledge $I$ that is conditioned on the dialogue history $H$.</p></blockquote><img width="267px" src="\images\paper3-2.png"/><img width="267px" src="\images\paper3-3.png"/><ol><li>talk with itself to explicitly generate background commonsense knowledge ($P_θ(I|H^′)$ )</li><li>generate response ($P_θ(R|H^′, I)$)</li></ol><h3 id="Datasets-Baselines-and-Evaluation"><a href="#Datasets-Baselines-and-Evaluation" class="headerlink" title="Datasets, Baselines and Evaluation"></a>Datasets, Baselines and Evaluation</h3><blockquote><p>DailyDialog, EmpatheticDialogues, MuTual, and SocialIQA-prompted CommonsenseDialogues</p></blockquote><blockquote><p>DialoGPT-medium as base model</p></blockquote><blockquote><p>BLEU, METEOR, ROUGE, CIDEr, SkipThoughts, GRADE(reference-free)</p></blockquote><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://aclanthology.org/2022.acl-long.88">Think Before You Speak:Explicitly Generating Implicit Commonsense Knowledge for Response Generation</a></p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">论文精读</category>
+      
+      
+      <category domain="http://example.com/tags/reasoning%EF%BC%88chain-of-thought%EF%BC%89/">reasoning（chain-of-thought）</category>
+      
+      <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
+      
+      <category domain="http://example.com/tags/response-generation/">response generation</category>
+      
+      
+      <comments>http://example.com/2022/10/18/paper3/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Faithful Reasoning Using Large Language Models</title>
@@ -195,84 +292,6 @@
       
       
       <comments>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E5%9B%9B%EF%BC%89/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>第三章：政府投融资与债务</title>
-      <link>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/</link>
-      <guid>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/</guid>
-      <pubDate>Sun, 16 Oct 2022 04:56:30 GMT</pubDate>
-      
-      <description>&lt;p&gt;上一章提到政府的债务，本章对其详细叙述。再穷的国家也有大片的土地，土地本身并不值钱，值钱的是土地之上的经济活动。&lt;strong&gt;经济发展的奥秘之一，正是把有形资产转本成为抽象资本，从而聚合跨越空间和时间的资源&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;我国政府不但拥有城市土地，也掌控着金融系统，自然会以各种方式参与实业投资，不可能置身事外。法律规定，地方政府不能从银行贷款，所以政府想要借钱投资，需要成立专门的公司。这类公司大都是国有独资企业，一般统称为“地方政府融资平台”，突出了其融资和负债功能。&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>上一章提到政府的债务，本章对其详细叙述。再穷的国家也有大片的土地，土地本身并不值钱，值钱的是土地之上的经济活动。<strong>经济发展的奥秘之一，正是把有形资产转本成为抽象资本，从而聚合跨越空间和时间的资源</strong>。</p><p>我国政府不但拥有城市土地，也掌控着金融系统，自然会以各种方式参与实业投资，不可能置身事外。法律规定，地方政府不能从银行贷款，所以政府想要借钱投资，需要成立专门的公司。这类公司大都是国有独资企业，一般统称为“地方政府融资平台”，突出了其融资和负债功能。</p><span id="more"></span><p>书中以成都文旅集团为例说明政府融资平台类公司的典型特征，第一它持有从政府取得的大量土地使用权，因此可以撬动银行贷款和其他资金；第二盈利状况依赖政府补贴，这类投资的回报不能只看项目本身，要算上它带动的经济效益和社会效益；第三，政府的隐性担保可以让企业大量借款。</p><p>大多数融资平台的主业不是旅游开发，而是工业园区开发和城市基础设施建设。比如兆润集团可以用政府注入的土地去抵押贷款，或用未来土地出让受益权去质押贷款，还可以发债，而还款来源就是管委会回购土地时支付的转让费及各种财政补贴。还有一类企业比如华夏幸福，因为中西部市县招商困难，因此完全依托民营企业来开发产业园区，甚至连招商引资也一并委托给这些企业，它们同时开发产业园区和房地产。所谓“产城结合”，“产”是旗帜，“城”是重点，需要用卖房赚到的快钱去支持产业园区运营。这种“政府和社会资本合作”，法律规定政府不能和企业直接分享税收，但可以购买企业服务，以产业发展服务费的名义来支付与企业约定的分成。</p><p>随着城市化和商品房改革，土地价值飙升，政府不仅靠土地使用权转让收入支撑起了“土地财政”，还将未来的土地收益资本化，从银行和其他渠道借入了天量资金，利用“土地金融”的巨力，推动了快速的工业化和城市化。但同时也积累了大量债务，这套模式的关键是<strong>土地价格</strong>。只要不断的投资和建设能带来持续的经济增长，城市就会扩张，地价就会上涨，就可以偿还连本带利越滚越多的债务。</p><p>大部分城市建设经费要靠财政拨款，但是分税制改革之后，城建经费非常紧张，于是需要引入银行资金。第一需要一个能借款的公司；第二是需要以赚钱的项目带动不赚钱的项目；第三是要能把土地有关的收益用起来。为解决这三个问题，城投公司就产生了，它最主要的融资方式是银行贷款，其次是发行证券。债券卖给广大投资者可以分散风险，也可以交易。</p><p>对于地方债务，层级越低的政府负担越重风险越高，中西部的债务负担和风险远高于东部。对于债务治理，第一是债务置换，用地方政府发行的公债，替换一部分融资平台公司的银行贷款和城投债，这样可以降低利率，延长期限，提升信用级别。第二是推动融资平台转型，厘清与政府之间的关系，剥离其为政府融资的功能，同时破除政府对其形成的“隐形”担保。第三是约束银行和各类金融机构，避免大量资金流入融资平台。第四是问责官员，对过度负债的行为终身追责。</p><p>事在人为，<strong>人才的选拔和激励机制</strong>是官僚体制的核心，决定着政府运作的效果，激励机制需要将干部个人得失与本地经济发展情况紧密挂钩，既要激励地方主官，也要激励基层公务员。地方主官任期有限，投资又需要资金，需要土地财政和土地金融的支持，所以城市建设面积越扩越大，但普遍不够紧凑，通勤时间长、成本高，加重了拥挤程度，也不利于环保。而且地方官员常常偏重“看得见”的工程，而相对忽视“看不见”的工程。于是改革强调要看“全面工作”。</p><p>在官员考核和晋升中，人情关系也重要，人情和业绩之间可能相互促进。虽然地方官场的人情关系对于局部的政治经济生态会有影响，但是对整体经济现象却不一定，因为地方之间有竞争关系，而且关系网中关键人物的不确定性很大。但是这只是对地方领导班子很重要，对于绝大多数政府工作人员来说，晋升机会十分渺茫，更看重实际收入以及一些工作福利。其实外部的激励机制和制度环境重要，内心的情感驱动也很重要。</p><p>政府投资和土地金融的发展模式，一大弊端就是腐败严重。第一，腐败和经济高速增长长期并存；第二，政府和市场间的关系在不断变化，腐败形式也在不断变化。腐败有两种，一种是“掠夺式”腐败，另一种是“官商勾连共同发财式”腐败，这种导致结果就是，长期偏重投资导致经济结构扭曲；扭曲投资和信贷资源配置；权钱交易扩大了贫富差距；地方上可能形成利益集团。</p><p>长期来看，反腐败是国家治理能力建设的一部分，根本的措施还是<strong>简政放权，从生产投资型政府向服务型政府逐步转型</strong>。</p>]]></content:encoded>
-      
-      
-      <category domain="http://example.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</category>
-      
-      
-      <category domain="http://example.com/tags/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85-%E4%B8%AD%E5%9B%BD%E6%94%BF%E5%BA%9C%E4%B8%8E%E7%BB%8F%E6%B5%8E%E5%8F%91%E5%B1%95%E3%80%8B/">《置身事内--中国政府与经济发展》</category>
-      
-      <category domain="http://example.com/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/">中国经济</category>
-      
-      
-      <comments>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>第二章：财税与政府行为</title>
-      <link>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%BA%8C%EF%BC%89/</link>
-      <guid>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%BA%8C%EF%BC%89/</guid>
-      <pubDate>Sun, 16 Oct 2022 04:56:18 GMT</pubDate>
-      
-      <description>&lt;p&gt;这一章通过两部国产电视剧《大明王朝1566》和《走向共和》引出，正好这两部电视剧我都有一点点看完，便也理解其实所有的政见冲突和人事谋略，都隐藏在账目中。就像书中说道，&lt;strong&gt;要真正理解政府行为，必然要了解财税。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;从上一章了解到政府的事权划分，而事权必然要求相应的财力支持，财政是国家治理的基础和重要支柱。中国在20世纪80年代的经济特点就是“承包”，而我国的基本国策决定了不能对所有权做出根本性变革，只能对使用权和经营权实行承包制，以提高工作积极性。&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>这一章通过两部国产电视剧《大明王朝1566》和《走向共和》引出，正好这两部电视剧我都有一点点看完，便也理解其实所有的政见冲突和人事谋略，都隐藏在账目中。就像书中说道，<strong>要真正理解政府行为，必然要了解财税。</strong></p><p>从上一章了解到政府的事权划分，而事权必然要求相应的财力支持，财政是国家治理的基础和重要支柱。中国在20世纪80年代的经济特点就是“承包”，而我国的基本国策决定了不能对所有权做出根本性变革，只能对使用权和经营权实行承包制，以提高工作积极性。</p><span id="more"></span><p>在财政承包制下，交完了中央的，剩下的都是地方自己的。因此地方政府通过大力兴办乡镇企业，获得增值税和利润。但是这样造成了“两个比重”不断降低：中央财政预算收入占全国财政预算收入的比重越来越低，而全国财政预算总收入占GDP的比重也越来越低。主要是因为承包制本身的不稳定以及预算外收入有关。这样严重削弱了国家财政能力，不利于推进改革，不存在宏观调控的能力。</p><p>1994年的分税制改革分设国税、地税两套机构，这样可以减少地方政府对税收的干扰，但是提高了税收征管成本，2018年国税和地税再次开始合并。其实分税制改革，地方阻力很大，当时中央和地方进行了多次协商。文中说道：<strong>成功的政策背后是成功的协商和妥协</strong>，而不是机械的命令与执行。最后决定在全国范围内用1993年做基年，开始分税制改革。</p><p>可是分税制改革并没有改变地方政府以经济建设为中心的任务，却减少了其手头可支配的财政资源。地方政府于是努力增加税收规模和预算外收入，造成了<strong>重视企业而相对轻视民生，重视生产而相对轻视消费</strong>的局面，地方政府在财政支出上向招商引资倾斜，而民生支出相对不足。但是2003年中央提出要求更加重视民生支出，但是基本都由地方政府承担，所以从分税制改革以来，地方政府手中能用来发展经济的资源受到了多方面的挤压。于是为了寻找资金来源，就开始了所谓的“土地财政”。</p><p>我国实行土地公有制，城市土地归国家所有，农村土地归集体所有。从1998年单位停止福利分房，以及规定了农地要想转为建设用地必须经过征地后变成国有土地之后，城市土地的真正价值开始显现。但是刚开始没有明确的制度，土地开发过程中触红线了大量腐败和混乱，2002年国土部明确四类经营用地（商业、旅游、娱乐、房地产），同时采用“招拍挂”制度。所谓“土地财政”，不仅包括巨额的土地使用权转让收入，还包括与土地使用和开发有关的各种税收收入。</p><p>从2001年所得税改革之后，地方政府开始“工业化和城市化”两手抓：一方面继续低价供应大量工业用地，另一方面限制商住用地供给。所以“土地财政”的实质是“房地产财政”。</p><p><strong>所谓经济发展，就是提高资源使用效率。</strong>而工业用地可以落地的地方很多，所以政府很难抬高地价，商住用地主要服务本地居民，更容易抬高地价。土地的资本化运作，本质是把未来的收益抵押到今天去借钱，因此地方政府的债务问题可能会比较严重。但其实如果只是债务问题，倒也不难缓解，最近几年实施了一系列财政和金融改革，实际上已经遏制住了债务的迅猛增长。但经济增速随之放缓，说明资源的使用率仍然不高。因此2020年政府要求“推进土地要素市场化配置”。</p><p>分税制改革之后，出现了“财政层层上升，事权层层下压”的局面，基层财政出现了严重的问题。十六大于是强调“统筹城乡发展”，2006年1月1日，农业税彻底废止。但这样导致基层财政维持起来就更加艰难，于是改革加大了上级的统筹和转移支付力度。第一是把农村基本公共服务开支纳入国家公共财政保障范围，由中央和地方政府共同负担；第二是在转移支付制度中加入激励机制，鼓励基层政府达成特定目标，并给予奖励；第三是基层财政资源向上一级政府统筹。</p><p>土地真正的力量还不在“土地财政”，而在<strong>以土地为抵押而撬动的银行信贷和其他各路资金</strong>。“土地财政”一旦嫁接了资本市场，加上了杠杆，就成了“土地金融”，能像滚雪球般越滚越大，推动经济飞速扩展，也造就了地方政府越滚越多的债务，引发了一系列宏观经济问题。</p>]]></content:encoded>
-      
-      
-      <category domain="http://example.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</category>
-      
-      
-      <category domain="http://example.com/tags/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85-%E4%B8%AD%E5%9B%BD%E6%94%BF%E5%BA%9C%E4%B8%8E%E7%BB%8F%E6%B5%8E%E5%8F%91%E5%B1%95%E3%80%8B/">《置身事内--中国政府与经济发展》</category>
-      
-      <category domain="http://example.com/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/">中国经济</category>
-      
-      
-      <comments>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%BA%8C%EF%BC%89/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>第一章：地方政府的权力与事务</title>
-      <link>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%80%EF%BC%89/</link>
-      <guid>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%80%EF%BC%89/</guid>
-      <pubDate>Sun, 16 Oct 2022 04:56:11 GMT</pubDate>
-      
-      <description>&lt;p&gt;读完第一章，让我对中国地方政府有了更加深刻的认识。正如作者所说，&lt;strong&gt;在中国脱离政府谈经济，是完全不可能的。&lt;/strong&gt;而要了解政府的治理和运作，则需要了解权力和资源在政府体系中的分布规则。&lt;/p&gt;
-&lt;p&gt;中国的五级政府管理体系为中央—省—市—县区—乡镇，又因为现实情况远比该简化的体系复杂，所以这五级体系也在不断改革中。中国是如此之大，为了维持大一统的国家，则要求维护中央权威和统一领导；为了政治体系的日常运作，又需要以地方政府为主。因此，地方政府自主权力很大。该章节中讲述了对事权划分的三种理论：&lt;strong&gt;公共服务的规模经济与边界&lt;/strong&gt;、&lt;strong&gt;信息复杂性&lt;/strong&gt;、&lt;strong&gt;激励相容&lt;/strong&gt;。&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>读完第一章，让我对中国地方政府有了更加深刻的认识。正如作者所说，<strong>在中国脱离政府谈经济，是完全不可能的。</strong>而要了解政府的治理和运作，则需要了解权力和资源在政府体系中的分布规则。</p><p>中国的五级政府管理体系为中央—省—市—县区—乡镇，又因为现实情况远比该简化的体系复杂，所以这五级体系也在不断改革中。中国是如此之大，为了维持大一统的国家，则要求维护中央权威和统一领导；为了政治体系的日常运作，又需要以地方政府为主。因此，地方政府自主权力很大。该章节中讲述了对事权划分的三种理论：<strong>公共服务的规模经济与边界</strong>、<strong>信息复杂性</strong>、<strong>激励相容</strong>。</p><span id="more"></span><p>所谓“规模经济”，即这类物品一旦生产出来，大家都能用，用的人越多就越划算，公共服务即符合这一概念。但是受制于人们获取这些服务的代价和意愿，政区不能无限扩大，即公共服务有具有边界性。</p><p>行政边界的划分跟公共服务的影响范围有关，我国实行“属地管理”，即地方事权与行政区划密不可分。并且我国的人口分布极不平衡、地理条件是行政管理的自然边界、不同地区的语言文化差异也很大，这些都是影响公共服务范围的因素。读到这我不仅感叹中国的行政区划，但同时不可避免的是行政交界处的经济发展普遍比较落后，在本省之内与主流文化隔阂，而与邻省同文化区的交流又被行政边界割裂。</p><p>同时信息对权力的影响也是巨大的，原则上，在中国，上级对下级的各项工作都有最终决策权，可以推翻下级的所有决定。但是实际权威来自信息优势，也就是说，如果下级想办某件事，只要上级不明确反对，一般都能办，即使上级反对也可以变通着干，而即使是上级明确交代的事情，如果下级不想办，那办事的效果也会有很大的弹性。所以上级要不断的向下传达，下级要不断向上汇报，平级要不断沟通。</p><p>正因为信息复杂多变，模糊不清的地方太多，而政府的繁杂事权又没有清楚的法律界定。所以体制内的实际权力和责任都高度个人化。<strong>所谓权力，实质就是在说不清楚的情况下由谁来拍板决策的问题。</strong>这也是各地区、各部门“一把手负责制”的根源之一，可能会导致专权和腐败。</p><p>对于激励相容，即如果一方想做的事，另一方既有意愿也有能力做好。因为有些事物与地方经济密不可分，而且由于垂直管理，当地政府对部门的监督和约束都没有力度。改革后因此很多部门会面临双重领导，这就需要一个很好的激励机制。并且激励相容原则不仅要让地方负责，也要与地方分享发展成果，不仅要能激励地方努力做好，还要能约束地方不要搞砸，要不要努力过头。</p><p>因此激励相容原则首先要求明确地方的权利和责任，其次是权力和资源的配置要制度化，来自外部的竞争也可以约束地方政府。</p><p>其实三大原则的<strong>共同主题都是处理不同群体的利益差别与冲突</strong>。在中国，地方政府不仅提供公共服务，也深度参与生产与分配。比如在招商引资时，对企业至关重要的生产要素，地方政府几乎有着很强的干预能力。其中包括土地、资金、劳动力、科技投入等等。因此文章再次强调，在我国，想脱离政府来了解经济，是不可能的。</p>]]></content:encoded>
-      
-      
-      <category domain="http://example.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</category>
-      
-      
-      <category domain="http://example.com/tags/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85-%E4%B8%AD%E5%9B%BD%E6%94%BF%E5%BA%9C%E4%B8%8E%E7%BB%8F%E6%B5%8E%E5%8F%91%E5%B1%95%E3%80%8B/">《置身事内--中国政府与经济发展》</category>
-      
-      <category domain="http://example.com/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/">中国经济</category>
-      
-      
-      <comments>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%80%EF%BC%89/#disqus_thread</comments>
       
     </item>
     
