@@ -9,7 +9,7 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Practice makes Perfect</description>
-    <pubDate>Thu, 27 Oct 2022 11:52:49 GMT</pubDate>
+    <pubDate>Thu, 27 Oct 2022 11:53:51 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -18,8 +18,7 @@
       <guid>http://example.com/2022/10/27/paper6/</guid>
       <pubDate>Thu, 27 Oct 2022 11:50:31 GMT</pubDate>
       
-      <description>&lt;p&gt;Label: generate narrative coherent texts, multi-task training&lt;/p&gt;
-&lt;h3 id=&quot;Settings&quot;&gt;&lt;a href=&quot;#Settings&quot; class=&quot;headerlink&quot; title=&quot;Settings&quot;&gt;&lt;/a&gt;Settings&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Backbone&lt;/strong&gt;: T5-base&lt;/p&gt;
+      <description>&lt;h3 id=&quot;Settings&quot;&gt;&lt;a href=&quot;#Settings&quot; class=&quot;headerlink&quot; title=&quot;Settings&quot;&gt;&lt;/a&gt;Settings&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Backbone&lt;/strong&gt;: T5-base&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Datasets&lt;/strong&gt;: &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Reddit&amp;#x2F;ChangeMyView(&lt;em&gt;argument generation&lt;/em&gt;), Wikiplots(&lt;em&gt;story generation&lt;/em&gt;), New Tork Times(&lt;em&gt;news article writing&lt;/em&gt;)&lt;/p&gt;
@@ -29,7 +28,7 @@
       
       
       
-      <content:encoded><![CDATA[<p>Label: generate narrative coherent texts, multi-task training</p><h3 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h3><p><strong>Backbone</strong>: T5-base</p><p><strong>Datasets</strong>: </p><blockquote><p>Reddit&#x2F;ChangeMyView(<em>argument generation</em>), Wikiplots(<em>story generation</em>), New Tork Times(<em>news article writing</em>)</p></blockquote><p><strong>Baselines</strong>: GPT2, T5, CONTENTPLAN, BOWPLAN,</p><p><strong>Metrics</strong>: BLEU, ROUGE, METEOR</p><span id="more"></span><h3 id="Training-Objectives"><a href="#Training-Objectives" class="headerlink" title="Training Objectives:"></a><strong>Training Objectives</strong>:</h3><p><strong>task prompt</strong> prepended to the source input.</p><ol><li>end-to-end token-level generation task;</li><li>decomposed generation tasks including text planning and surface generation;</li><li>reviewing tasks with revising flawed targets and distinguishing between correct and incorrect options.</li></ol><p><strong>#Decomp</strong>:</p><p>Text Planning:</p><blockquote><p>extract <strong>salient noun and verb</strong> phrases from the target as keyphrases, and then concatenate the keyphrases <strong>with the same order</strong> they appear in the target as the plan.</p></blockquote><p>Surface Realization:</p><p><strong>#Review</strong>:</p><p>Revise Task</p><blockquote><p><strong>randomly shuffle</strong> the target sentences;</p><p><strong>replace</strong> the keyphrases in the target with random keyphrases.</p></blockquote><p>Distinguishing Task</p><blockquote><p><strong>predict</strong> whether the output is correct by generating “positive” or “negative”.</p></blockquote>]]></content:encoded>
+      <content:encoded><![CDATA[<h3 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h3><p><strong>Backbone</strong>: T5-base</p><p><strong>Datasets</strong>: </p><blockquote><p>Reddit&#x2F;ChangeMyView(<em>argument generation</em>), Wikiplots(<em>story generation</em>), New Tork Times(<em>news article writing</em>)</p></blockquote><p><strong>Baselines</strong>: GPT2, T5, CONTENTPLAN, BOWPLAN,</p><p><strong>Metrics</strong>: BLEU, ROUGE, METEOR</p><span id="more"></span><h3 id="Training-Objectives"><a href="#Training-Objectives" class="headerlink" title="Training Objectives:"></a><strong>Training Objectives</strong>:</h3><p><strong>task prompt</strong> prepended to the source input.</p><ol><li>end-to-end token-level generation task;</li><li>decomposed generation tasks including text planning and surface generation;</li><li>reviewing tasks with revising flawed targets and distinguishing between correct and incorrect options.</li></ol><p><strong>#Decomp</strong>:</p><p>Text Planning:</p><blockquote><p>extract <strong>salient noun and verb</strong> phrases from the target as keyphrases, and then concatenate the keyphrases <strong>with the same order</strong> they appear in the target as the plan.</p></blockquote><p>Surface Realization:</p><p><strong>#Review</strong>:</p><p>Revise Task</p><blockquote><p><strong>randomly shuffle</strong> the target sentences;</p><p><strong>replace</strong> the keyphrases in the target with random keyphrases.</p></blockquote><p>Distinguishing Task</p><blockquote><p><strong>predict</strong> whether the output is correct by generating “positive” or “negative”.</p></blockquote>]]></content:encoded>
       
       
       <category domain="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">论文精读</category>
