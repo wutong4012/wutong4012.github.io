@@ -9,196 +9,31 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Practice makes Perfect</description>
-    <pubDate>Thu, 27 Oct 2022 11:53:51 GMT</pubDate>
+    <pubDate>Sun, 20 Nov 2022 04:23:58 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>MOCHA:A Multi-Task Training Approach for Coherent Text Generation from Cognitive Perspective</title>
-      <link>http://example.com/2022/10/27/paper6/</link>
-      <guid>http://example.com/2022/10/27/paper6/</guid>
-      <pubDate>Thu, 27 Oct 2022 11:50:31 GMT</pubDate>
+      <title>mcmc原理及实现（1）</title>
+      <link>http://example.com/2022/11/20/mcmc1/</link>
+      <guid>http://example.com/2022/11/20/mcmc1/</guid>
+      <pubDate>Sun, 20 Nov 2022 04:18:07 GMT</pubDate>
       
-      <description>&lt;h3 id=&quot;Settings&quot;&gt;&lt;a href=&quot;#Settings&quot; class=&quot;headerlink&quot; title=&quot;Settings&quot;&gt;&lt;/a&gt;Settings&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Backbone&lt;/strong&gt;: T5-base&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Datasets&lt;/strong&gt;: &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Reddit&amp;#x2F;ChangeMyView(&lt;em&gt;argument generation&lt;/em&gt;), Wikiplots(&lt;em&gt;story generation&lt;/em&gt;), New Tork Times(&lt;em&gt;news article writing&lt;/em&gt;)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Baselines&lt;/strong&gt;: GPT2, T5, CONTENTPLAN, BOWPLAN,&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Metrics&lt;/strong&gt;: BLEU, ROUGE, METEOR&lt;/p&gt;</description>
+      <description>&lt;p&gt;所谓统计推断，就是&lt;strong&gt;基于我们观察到的东西来学习我们观察不到的东西&lt;/strong&gt;。而贝叶斯推断，就是在贝叶斯的观点下的统计推断。之所以在贝叶斯范式下，是因为贝叶斯理论表明了预先定义的知识（&lt;strong&gt;先验&lt;/strong&gt;），通过观察而得到的知识（&lt;strong&gt;似然&lt;/strong&gt;）和最终想要的知识（&lt;strong&gt;后验&lt;/strong&gt;）的关系。&lt;/p&gt;</description>
       
       
       
-      <content:encoded><![CDATA[<h3 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h3><p><strong>Backbone</strong>: T5-base</p><p><strong>Datasets</strong>: </p><blockquote><p>Reddit&#x2F;ChangeMyView(<em>argument generation</em>), Wikiplots(<em>story generation</em>), New Tork Times(<em>news article writing</em>)</p></blockquote><p><strong>Baselines</strong>: GPT2, T5, CONTENTPLAN, BOWPLAN,</p><p><strong>Metrics</strong>: BLEU, ROUGE, METEOR</p><span id="more"></span><h3 id="Training-Objectives"><a href="#Training-Objectives" class="headerlink" title="Training Objectives:"></a><strong>Training Objectives</strong>:</h3><p><strong>task prompt</strong> prepended to the source input.</p><ol><li>end-to-end token-level generation task;</li><li>decomposed generation tasks including text planning and surface generation;</li><li>reviewing tasks with revising flawed targets and distinguishing between correct and incorrect options.</li></ol><p><strong>#Decomp</strong>:</p><p>Text Planning:</p><blockquote><p>extract <strong>salient noun and verb</strong> phrases from the target as keyphrases, and then concatenate the keyphrases <strong>with the same order</strong> they appear in the target as the plan.</p></blockquote><p>Surface Realization:</p><p><strong>#Review</strong>:</p><p>Revise Task</p><blockquote><p><strong>randomly shuffle</strong> the target sentences;</p><p><strong>replace</strong> the keyphrases in the target with random keyphrases.</p></blockquote><p>Distinguishing Task</p><blockquote><p><strong>predict</strong> whether the output is correct by generating “positive” or “negative”.</p></blockquote>]]></content:encoded>
+      <content:encoded><![CDATA[<p>所谓统计推断，就是<strong>基于我们观察到的东西来学习我们观察不到的东西</strong>。而贝叶斯推断，就是在贝叶斯的观点下的统计推断。之所以在贝叶斯范式下，是因为贝叶斯理论表明了预先定义的知识（<strong>先验</strong>），通过观察而得到的知识（<strong>似然</strong>）和最终想要的知识（<strong>后验</strong>）的关系。</p><span id="more"></span><h3 id="归一化系数"><a href="#归一化系数" class="headerlink" title="归一化系数"></a>归一化系数</h3><p>假设数据$x$从以$\theta$为未知参数的模型<em>（即给定$\theta$生成$x$概率分布$p(x|\theta)$）</em>中产生，而$\theta$的概率分布为$p_\theta$<em>（注意，虽然这里已知概率分布$p_\theta$，但是我们并不知道参数$\theta$。举例来说，假设$p_\theta\sim\mathcal{N}(\theta, I)$，虽然知道$p_\theta$是高斯分布，但是并不知道均值，即其中一个参数$\theta$）</em>，然后每当有一个数据点$x$被观察到，就可以通过贝叶斯定理来更新参数$\theta$：<br>$$<br>p(\theta\mid x)&#x3D;\frac{p(x\mid\theta)p(\theta)}{p(x)}<br>$$<br>其中$p(\theta)$为先验，表明在没有观察之前参数$\theta$为任意值的可能性，与所观察到的数据$x$完全无关；$p(x|\theta)$为似然，表明对于给定的参数$\theta$观察到这个数据$x$的可能性，也就是上文所说的模型；$p(x)$是证据，表明观察这些特定数据的可能性，与参数$\theta$完全无关；$p(\theta|x)$是后验，表明给定观察的数据$x$之后参数$\theta$为任意值的可能性。</p><p>到这里，前两项$p(\theta),p(x|\theta)$都是给出的，但并不知道$p(x)$如何计算。事实上，$p(x)$是一个归一化系数，因为$p(\theta|x)$是一个概率，所以需要$p(x|\theta)p(\theta)$除以所有可能的$\theta$的情况来使最终的值在0~1之间。从而归一化系数$p(x)$可以写为<br>$$<br>p(x)&#x3D;\int_\theta p(x\mid\theta)p(\theta)d\theta<br>$$<br>可以发现，这个表达式其实就是$p(x)$关于$\theta$的边缘分布。大部分情况下，因为$\theta$为模型的参数，所以维度会特别大，而在高维空间进行积分是非常难解的。另外当变量是离散的时候，上述积分就会变为累加（从0到$\infty$），这也是不可解的。这两个问题通常被称为“normalization factor problem”。</p><h3 id="MCMC采样方法"><a href="#MCMC采样方法" class="headerlink" title="MCMC采样方法"></a>MCMC采样方法</h3><p>一般都是通过采样解决这类问题。但是除了最基本的概率分布之外，从任何其他概率分布中采样都很困难。</p><p>逆变换采样（Inverse transform sampling）需要累积分布函数，即需要归一化常数，但这通常是不知道的。虽然可以通过积分得出归一化常数，但随着维数的增加就不可行了。</p><p>拒绝采样（Rejection sampling）不需要归一化分布，但它需要大量关于所求分布的知识，而且维度对它的影响很大，它的效率随着变量维度的增加而迅速下降。</p><p>马尔科夫链蒙特卡罗（Markov Chains Monte Carlo）采样方法不去计算归一化系数，而是通过从目标分布中采样来计算当前时刻的各种统计量来近似目标分布。由于这种方法没有对概率分布进行任何假设，所以通常<strong>偏差很小</strong>而<strong>方差很大</strong>，而且通常<strong>更加精确</strong>但是却<strong>更加耗时</strong>。</p><h4 id="马尔科夫链"><a href="#马尔科夫链" class="headerlink" title="马尔科夫链"></a>马尔科夫链</h4><p>马尔可夫链（Markov Chain）是某个状态空间中的随机状态序列，其中选择下一个特定状态的概率<strong>仅取决于链中的当前状态</strong>而不是之前的历史：它是无记忆的。在特定条件下，马尔可夫链具有<strong>唯一的状态平稳分布</strong>，在一定数量的状态后它会收敛到该状态。从该状态开始，马尔可夫链中状态的分布即服从该不变分布。</p><p>MCMC就是建立了这样的一个马尔科夫链，需要从随机概率分布$\pi$中采样，它可以是离散的，也可以是连续的。不失一般性，这里以连续型进行讨论。</p><p>我们将状态$x_i$转移到状态$x_{i+1}$的转移概率定义为$T(x_{i+1}|x_i)$，它包括两个步骤：提议（proposal ）步骤和接受&#x2F;拒绝步骤。提议步骤具有<strong>提议分布</strong>$q(x_{i+1}|x_i)$，表示可以对链上可能的下一个状态进行采样。除了能够从中采样之外，还可以<strong>任意选择</strong>这个分布。但是实际应该努力使得来自它的样本与当前状态的<strong>相关性尽可能小</strong>，并且尽可能在接受步骤中被接受。接受&#x2F;拒绝步骤纠正了由于$q \neq \pi$的提议状态而引入的错误，包括计算<strong>接受概率</strong>$p_\mathrm{acc}(x_{i+1}|x_i)$和接收提议$x_{i+1}$以接收概率作为链的下一个状态。</p><p>具体来说，首先提议状态$x_{i+1}$来自于$q(x_{i+1}|x_i)$，然后它要么以$p_\mathrm{acc}(x_{i+1}|x_i)$的概率接受为下一个状态，要么以$1-p_\mathrm{acc}(x_{i+1}|x_i)$的概率被拒绝，拒绝时当前状态被复制为下一个状态。形式化为<br>$$<br>T(x_{i+1}\mid x_i)&#x3D;q(x_{i+1}\mid x_i)\times p_\text{acc}(x_{i+1}\mid x_i)<br>$$<br>马尔可夫链的充分条件是因为它的平稳分布$\pi$是服从<strong>细致平稳条件 (detailed balance condition)</strong><br>$$<br>\pi(x_i)T(x_{i+1}\mid x_i)&#x3D;\pi(x_{i+1})T(x_i\mid x_{i+1})<br>$$<br>细致平稳条件的物理含义就是对于任何两个状态$i,j$，从 $i$转移到$j$而丢失的概率质量，恰好会被从$j$转移回$i$的概率质量补充回来，所以状态 $i$ 上的概率质量$\pi(i)$是稳定的，从而$\pi(x)$是马氏链的平稳分布。具体证明为<br>$$<br>\begin{align} &amp; \sum_{i&#x3D;1}^\infty \pi(i)P_{ij} &#x3D; \sum_{i&#x3D;1}^\infty \pi(j)P_{ji} &#x3D; \pi(j) \sum_{i&#x3D;1}^\infty P_{ji} &#x3D; \pi(j) \ &amp; \Rightarrow \pi P &#x3D; \pi \end{align}<br>$$<br>由于$\pi$是方程$\pi P&#x3D;\pi$的解，所以$\pi$是平稳分布。这意味着处于某种状态$x_i$并转移到$x_{i+1}$的概率必须等于逆过程的概率，即处于状态$x_{i+1}$并转移到$x_i$。</p><p>通常采用Metropolis 算法来计算接受概率<br>$$<br>p_\text{acc}(x_{i+1}\mid x_i)&#x3D;\min(1, \frac{\pi(x_{i+1})\times q(x_i\mid x_{i+1})}{\pi(x_i)\times q(x_{i+1}\mid x_i)})<br>$$<br>由于$\pi$最多只能达到一个常数，但这并不重要，因为该未知常数在$p_\mathrm{acc}$的表达式中抵消了！正是这个属性$p_\mathrm{acc}$使得基于 Metropolis-Hastings 的算法<strong>适用于非规范化分布</strong>。<br>$$<br>\begin{equation}<br>T(x_{i+1}\mid x_i)&#x3D;\left{\begin{array}{ll}<br>q(x_{i+1}\mid x_i)\times p_\text{acc}(x_{i+1}\mid x_i) &amp; x_{i+1}\neq x_i \<br>1-\int dx_{i+1}q(x_{i+1}\mid x_i)\times p_\text{acc}(x_{i+1}\mid x_i) &amp; x_{i+1}&#x3D; x_i<br>\end{array}\right.<br>\end{equation}<br>$$<br>为了使样本尽可能的贴合目标分布，只需要考虑离生成序列的起点足够远的状态，以便几乎达到马尔科夫链的稳定状态（因为稳态是存在的，所以总能渐进的到达）。因此第一次的模拟状态不能作为样本使用，把这个达到稳态所需的阶段称为”<strong>burn-in time</strong>“。</p><h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> stats</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义未知目标分布</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">log_prob</span>(<span class="params">x</span>):</span><br><span class="line">     <span class="keyword">return</span> -<span class="number">0.5</span> * np.<span class="built_in">sum</span>(x ** <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义提议分布为标准分布</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">proposal</span>(<span class="params">x, stepsize</span>):</span><br><span class="line">    <span class="keyword">return</span> np.random.uniform(low=x - <span class="number">0.5</span> * stepsize,</span><br><span class="line">                             high=x + <span class="number">0.5</span> * stepsize,</span><br><span class="line">                             size=x.shape)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义接受概率</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">p_acc_MH</span>(<span class="params">x_new, x_old, log_prob</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">min</span>(<span class="number">1</span>, np.exp(log_prob(x_new) - log_prob(x_old)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义采样过程</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sample_MH</span>(<span class="params">x_old, log_prob, stepsize</span>):</span><br><span class="line">    x_new = proposal(x_old, stepsize)</span><br><span class="line">    <span class="comment"># 随机从0-1标准分布中选择一个概率进行比较</span></span><br><span class="line">    accept = np.random.random() &lt; p_acc_MH(x_new, x_old, log_prob)</span><br><span class="line">    <span class="keyword">if</span> accept:</span><br><span class="line">        <span class="keyword">return</span> accept, x_new</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> accept, x_old</span><br><span class="line"></span><br><span class="line"><span class="comment"># MH算法实现</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">build_MH_chain</span>(<span class="params">init, stepsize, n_total, log_prob</span>):</span><br><span class="line"></span><br><span class="line">    n_accepted = <span class="number">0</span></span><br><span class="line">    chain = [init]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n_total):</span><br><span class="line">        accept, state = sample_MH(chain[-<span class="number">1</span>], log_prob, stepsize)</span><br><span class="line">        chain.append(state)</span><br><span class="line">        n_accepted += accept</span><br><span class="line"></span><br><span class="line">    acceptance_rate = n_accepted / <span class="built_in">float</span>(n_total)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> chain, acceptance_rate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机定义超参</span></span><br><span class="line">chain, acceptance_rate = build_MH_chain(np.array([<span class="number">2.0</span>]), <span class="number">3.0</span>, <span class="number">10000</span>, log_prob)</span><br><span class="line">chain = [state <span class="keyword">for</span> state, <span class="keyword">in</span> chain]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Acceptance rate: &#123;:.3f&#125;&quot;</span>.<span class="built_in">format</span>(acceptance_rate))</span><br><span class="line">last_states = <span class="string">&quot;, &quot;</span>.join(<span class="string">&quot;&#123;:.5f&#125;&quot;</span>.<span class="built_in">format</span>(state) <span class="keyword">for</span> state <span class="keyword">in</span> chain[-<span class="number">10</span>:])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Last ten states of chain: &quot;</span> + last_states)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">plot_samples</span>(<span class="params">chain, log_prob, ax, orientation=<span class="string">&#x27;vertical&#x27;</span>, normalize=<span class="literal">True</span>, xlims=(<span class="params">-<span class="number">5</span>, <span class="number">5</span></span>), legend=<span class="literal">True</span></span>):</span><br><span class="line">    <span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> quad</span><br><span class="line"></span><br><span class="line">    ax.hist(chain, bins=<span class="number">50</span>, density=<span class="literal">True</span>, label=<span class="string">&quot;MCMC samples&quot;</span>, orientation=orientation)</span><br><span class="line">    <span class="comment"># 通过概率密度函数数值计算归一化常数</span></span><br><span class="line">    <span class="keyword">if</span> normalize:</span><br><span class="line">        Z, _ = quad(<span class="keyword">lambda</span> x: np.exp(log_prob(x)), -np.inf, np.inf)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        Z = <span class="number">1.0</span></span><br><span class="line">    xses = np.linspace(xlims[<span class="number">0</span>], xlims[<span class="number">1</span>], <span class="number">1000</span>)</span><br><span class="line">    yses = [np.exp(log_prob(x)) / Z <span class="keyword">for</span> x <span class="keyword">in</span> xses]</span><br><span class="line">    <span class="keyword">if</span> orientation == <span class="string">&#x27;horizontal&#x27;</span>:</span><br><span class="line">        (yses, xses) = (xses, yses)</span><br><span class="line">    ax.plot(xses, yses, label=<span class="string">&quot;true distribution&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> legend:</span><br><span class="line">        ax.legend(frameon=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">burn_in_tine = <span class="number">500</span></span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">plot_samples(chain[:], log_prob, ax)</span><br><span class="line">ax.set_yticks(())</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure><h4 id="超参数"><a href="#超参数" class="headerlink" title="超参数"></a>超参数</h4><p>代码中的stepsize决定了提议状态与链的当前状态之间的距离。因此它是提议分布$q$的一个参数并控制马尔可夫链采取的随机步骤有多大。如果步长太大，建议状态通常会在分布的尾部，概率很低，MH采样拒绝大部分这些转移，这意味着接受率降低并且收敛速度慢得多。</p><p>但无论如何选择步长参数，马尔可夫链最终都会收敛到其平稳分布。但如果步长太小可能需要很长时间。如果链收敛缓慢，则需要增加<code>n_total</code>，以便给马尔可夫链足够的时间来忘记它的初始状态。因此，通常使用<strong>微小的步长</strong>并通过增加<code>n_total</code>来<strong>增加样本数量</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sample_and_display</span>(<span class="params">init_state, stepsize, n_total, n_burnin, log_prob</span>):</span><br><span class="line">    chain, acceptance_rate = build_MH_chain(init_state, stepsize, n_total, log_prob)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Acceptance rate: &#123;:.3f&#125;&quot;</span>.<span class="built_in">format</span>(acceptance_rate))</span><br><span class="line">    fig, ax = plt.subplots()</span><br><span class="line">    plot_samples([state <span class="keyword">for</span> state, <span class="keyword">in</span> chain[n_burnin:]], log_prob, ax)</span><br><span class="line">    ax.set_yticks(())</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以通过修改步长和总样本数进行测试。</span></span><br><span class="line">sample_and_display(np.array([<span class="number">2.0</span>]), <span class="number">30</span>, <span class="number">10000</span>, <span class="number">500</span>, log_prob)</span><br></pre></td></tr></table></figure><p>步长太大</p><img width="267px" src="\images\mcmc1-1.png"/><p>步长太小</p><img width="267px" src="\images\mcmc1-2.png"/><p>小步长+大样本数</p><img width="267px" src="\images\mcmc1-3.png"/>]]></content:encoded>
       
       
-      <category domain="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">论文精读</category>
+      <category domain="http://example.com/categories/%E9%87%87%E6%A0%B7%E6%96%B9%E6%B3%95/">采样方法</category>
       
       
-      <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
+      <category domain="http://example.com/tags/MCMC%E9%87%87%E6%A0%B7/">MCMC采样</category>
       
-      <category domain="http://example.com/tags/coherent-texts-generation/">coherent texts generation</category>
+      <category domain="http://example.com/tags/%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90/">文本生成</category>
       
-      <category domain="http://example.com/tags/multi-task-training/">multi-task training</category>
       
-      
-      <comments>http://example.com/2022/10/27/paper6/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>EVA2.0:Investigating Open-Domain Chinese Dialogue Systems with Large-Scale Pre-Training</title>
-      <link>http://example.com/2022/10/18/paper5/</link>
-      <guid>http://example.com/2022/10/18/paper5/</guid>
-      <pubDate>Tue, 18 Oct 2022 11:48:01 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;Models-and-Datasets&quot;&gt;&lt;a href=&quot;#Models-and-Datasets&quot; class=&quot;headerlink&quot; title=&quot;Models and Datasets&quot;&gt;&lt;/a&gt;Models and Datasets&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;WDC-Dialogue&lt;/strong&gt;: the largest Chinese dialogue dataset&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Chinese Dialogue Models&lt;/strong&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;CDial-GPT → LCCC dataset collected from the Weibo Comments.&lt;/p&gt;
-&lt;p&gt;PLATO &amp;#x2F; PLATO-2 &amp;#x2F; PLATO-XL&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="Models-and-Datasets"><a href="#Models-and-Datasets" class="headerlink" title="Models and Datasets"></a>Models and Datasets</h3><p><strong>WDC-Dialogue</strong>: the largest Chinese dialogue dataset</p><p><strong>Chinese Dialogue Models</strong>:</p><blockquote><p>CDial-GPT → LCCC dataset collected from the Weibo Comments.</p><p>PLATO &#x2F; PLATO-2 &#x2F; PLATO-XL</p></blockquote><span id="more"></span><h3 id="Data-Quality-Evaluation"><a href="#Data-Quality-Evaluation" class="headerlink" title="Data Quality Evaluation"></a>Data Quality Evaluation</h3><p>**Relevance Score **(<em>context (C), response (R)</em>):</p><img width="267px" src="\images\paper5-1.png"/><img width="267px" src="\images\paper5-2.png"/><p><strong>Fluency Score</strong> (using <strong>kenlm</strong>):</p><img width="267px" src="\images\paper5-3.png"/><p><strong>Entertainment Tendency</strong>:</p><blockquote><p>the ratio of dialogues involving Chinese stars, also reflects the domain diversity to some extent.</p></blockquote><h3 id="Experimental-Conclusion"><a href="#Experimental-Conclusion" class="headerlink" title="Experimental Conclusion"></a>Experimental Conclusion</h3><ol><li>the model with <strong>balanced layers</strong> (encode layers&#x3D;decode layers) performs the best.</li><li>if the roles that in datasets <strong>cannot</strong> be naturally distinguished, adding role information will <strong>hurts</strong> the model performance.</li><li><strong>pre-train from scratch</strong> better than further pre-trained from CPM, a long-document pre-trained generative model except on Knowledge Q&amp;As.</li><li>when <strong>combined with</strong> sampling, repetition control, and length penalty, <strong>beam search</strong> has relatively balanced performance.</li></ol><h3 id="Weaknesses"><a href="#Weaknesses" class="headerlink" title="Weaknesses"></a>Weaknesses</h3><p><strong>Consistency</strong>:</p><blockquote><p>intra-contradiction: contradictions within the response.</p><p>inter-contradiction: contradictions between the dialogue context and the response.</p></blockquote><p><strong>Solution</strong>: train a contradiction detection classifier to re-rank the generated responses.</p><p><strong>Problem</strong>: a lack of NLI datasets in Chinese.</p><p><strong>Knowledge</strong>:</p><blockquote><p>open-domain dialogues are often <em>knowledge-sparse</em>. So the knowledge skills of the pre-trained dialogue models are relatively limited.</p></blockquote><p><strong>Solution</strong>:</p><blockquote><p>Implicit: fine-tuning the pre-trained model on crowd-sourced knowledge-intensive dialogue datasets.</p><p>Explicit: incorporating information retrieval into generation systems.</p></blockquote><p><strong>Problem</strong>: require extensive human-annotated knowledge-grounded dialogue data.</p><p><strong>Safety</strong>:</p><blockquote><p>unsafe behaviors such as suicide risk ignorance and social bias.</p></blockquote><p>So</p><blockquote><blockquote><p>post-processing module of dialogue systems;</p><p>some methods based on safety detectors;</p><p>train models on <em>extra safety-augmentation</em> samples.</p></blockquote></blockquote><p><strong>Empathy</strong>:</p><p><strong>Solution</strong>: incorporating empathy-demanded semantic information</p><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://arxiv.org/abs/2203.09313">EVA2.0: Investigating Open-Domain Chinese Dialogue Systems with Large-Scale Pre-Training</a></p>]]></content:encoded>
-      
-      
-      <category domain="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">论文精读</category>
-      
-      
-      <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
-      
-      <category domain="http://example.com/tags/open-source-model/">open-source model</category>
-      
-      <category domain="http://example.com/tags/chinese-dialogue-model/">chinese dialogue model</category>
-      
-      
-      <comments>http://example.com/2022/10/18/paper5/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>ConceptNet infused DialoGPT for Underlying Commonsense Understanding and Reasoning in Dialogue Response Generation</title>
-      <link>http://example.com/2022/10/18/paper4/</link>
-      <guid>http://example.com/2022/10/18/paper4/</guid>
-      <pubDate>Tue, 18 Oct 2022 11:39:43 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;Knowledge-Graph-and-Datasets&quot;&gt;&lt;a href=&quot;#Knowledge-Graph-and-Datasets&quot; class=&quot;headerlink&quot; title=&quot;Knowledge Graph and Datasets&quot;&gt;&lt;/a&gt;Knowledge Graph and Datasets&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;ConceptNet&lt;/strong&gt;: &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;large-scale and multilingual commonsense knowledge graph that describes general human knowledge.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;CommonGen&lt;/strong&gt;: &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;a challenging dataset which includes concepts-sentences pairs. It is widely used to explicitly test machines for the ability of generative commonsense reasoning.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="Knowledge-Graph-and-Datasets"><a href="#Knowledge-Graph-and-Datasets" class="headerlink" title="Knowledge Graph and Datasets"></a>Knowledge Graph and Datasets</h3><p><strong>ConceptNet</strong>: </p><blockquote><p>large-scale and multilingual commonsense knowledge graph that describes general human knowledge.</p></blockquote><p><strong>CommonGen</strong>: </p><blockquote><p>a challenging dataset which includes concepts-sentences pairs. It is widely used to explicitly test machines for the ability of generative commonsense reasoning.</p></blockquote><span id="more"></span><p><strong>Commonsense-Dialogues</strong>: </p><blockquote><p>involve much commonsense reasoning in the dialogue and help models produce more commonsense responses.</p></blockquote><h3 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h3><p><strong>Base Model</strong>: DialoGPT</p><blockquote><p>utilize the <strong>AdapterHub</strong> to integrate the Adapter layers into DialoGPT</p></blockquote><p><strong>Bias Random Walking</strong>: </p><blockquote><p>Starting with $c_0$, we firstly sample one concept as $c_1$ from its neighbors based on the normalized transition probability. Since starting searching $c_2$, we will bias the random walks by introducing search bias $α$.</p></blockquote><img width="267px" src="\images\paper4-1.png"/><p>The walk just transitioned from concept $t$ to concept $v$ and is now evaluating its next concept $x$.</p><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://arxiv.org/abs/2209.15109">ConceptNet infused DialoGPT for Underlying Commonsense Understanding and Reasoning in Dialogue Response Generation</a></p>]]></content:encoded>
-      
-      
-      <category domain="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">论文精读</category>
-      
-      
-      <category domain="http://example.com/tags/reasoning%EF%BC%88chain-of-thought%EF%BC%89/">reasoning（chain-of-thought）</category>
-      
-      <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
-      
-      <category domain="http://example.com/tags/response-generation/">response generation</category>
-      
-      
-      <comments>http://example.com/2022/10/18/paper4/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Think Before You Speak:Explicitly Generating Implicit Commonsense Knowledge for Response Generation</title>
-      <link>http://example.com/2022/10/18/paper3/</link>
-      <guid>http://example.com/2022/10/18/paper3/</guid>
-      <pubDate>Tue, 18 Oct 2022 11:32:48 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;Common-Dialogue-Response-Generation&quot;&gt;&lt;a href=&quot;#Common-Dialogue-Response-Generation&quot; class=&quot;headerlink&quot; title=&quot;Common Dialogue Response Generation&quot;&gt;&lt;/a&gt;&lt;strong&gt;Common Dialogue Response Generation&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;(&lt;em&gt;conditional language modeling&lt;/em&gt;)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;given a &lt;em&gt;history&lt;/em&gt; ($H$) consisting of a sequence of $n$  dialogue turns: $X_1, X_2, …, X_n$ (each turn refers to an utterance containing a sequence of $t_i$ tokens: $x_{i,1}, x_{i,2}, …, x_{i,ti}$) and a &lt;em&gt;response&lt;/em&gt; (R) sentence $Y$ comprised of a sequence of m tokens $y_1, y_2, …, y_m$.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img width=&quot;267px&quot; src=&quot;\images\paper3-1.png&quot;/&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="Common-Dialogue-Response-Generation"><a href="#Common-Dialogue-Response-Generation" class="headerlink" title="Common Dialogue Response Generation"></a><strong>Common Dialogue Response Generation</strong></h3><p>(<em>conditional language modeling</em>)</p><blockquote><p>given a <em>history</em> ($H$) consisting of a sequence of $n$  dialogue turns: $X_1, X_2, …, X_n$ (each turn refers to an utterance containing a sequence of $t_i$ tokens: $x_{i,1}, x_{i,2}, …, x_{i,ti}$) and a <em>response</em> (R) sentence $Y$ comprised of a sequence of m tokens $y_1, y_2, …, y_m$.</p></blockquote><img width="267px" src="\images\paper3-1.png"/><span id="more"></span><h3 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h3><blockquote><p>introduce a new component to RG —— implicit knowledge $I$ that is conditioned on the dialogue history $H$.</p></blockquote><img width="267px" src="\images\paper3-2.png"/><img width="267px" src="\images\paper3-3.png"/><ol><li>talk with itself to explicitly generate background commonsense knowledge ($P_θ(I|H^′)$ )</li><li>generate response ($P_θ(R|H^′, I)$)</li></ol><h3 id="Datasets-Baselines-and-Evaluation"><a href="#Datasets-Baselines-and-Evaluation" class="headerlink" title="Datasets, Baselines and Evaluation"></a>Datasets, Baselines and Evaluation</h3><blockquote><p>DailyDialog, EmpatheticDialogues, MuTual, and SocialIQA-prompted CommonsenseDialogues</p></blockquote><blockquote><p>DialoGPT-medium as base model</p></blockquote><blockquote><p>BLEU, METEOR, ROUGE, CIDEr, SkipThoughts, GRADE(reference-free)</p></blockquote><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://aclanthology.org/2022.acl-long.88">Think Before You Speak:Explicitly Generating Implicit Commonsense Knowledge for Response Generation</a></p>]]></content:encoded>
-      
-      
-      <category domain="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">论文精读</category>
-      
-      
-      <category domain="http://example.com/tags/reasoning%EF%BC%88chain-of-thought%EF%BC%89/">reasoning（chain-of-thought）</category>
-      
-      <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
-      
-      <category domain="http://example.com/tags/response-generation/">response generation</category>
-      
-      
-      <comments>http://example.com/2022/10/18/paper3/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Faithful Reasoning Using Large Language Models</title>
-      <link>http://example.com/2022/10/17/paper2/</link>
-      <guid>http://example.com/2022/10/17/paper2/</guid>
-      <pubDate>Mon, 17 Oct 2022 12:18:48 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;Methodology&quot;&gt;&lt;a href=&quot;#Methodology&quot; class=&quot;headerlink&quot; title=&quot;Methodology&quot;&gt;&lt;/a&gt;Methodology&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;comprises two fine-tuned LMs, one for &lt;strong&gt;selection&lt;/strong&gt; and one for &lt;strong&gt;inference&lt;/strong&gt;. The interleaved operation of these two components has a causal structure.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img width=&quot;267px&quot; src=&quot;\images\paper2-1.png&quot;/&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h3><blockquote><p>comprises two fine-tuned LMs, one for <strong>selection</strong> and one for <strong>inference</strong>. The interleaved operation of these two components has a causal structure.</p></blockquote><img width="267px" src="\images\paper2-1.png"/><span id="more"></span><p><strong>Selection-Inference</strong>:</p><blockquote><p>Selection model chooses a set of statements from the context. (<strong>selection</strong>)</p></blockquote><blockquote><p>Inference model predicts an <strong>entailment</strong> by computing a statement that follows from the selection. (<strong>inference</strong>)</p></blockquote><p><strong>Halter</strong>:</p><blockquote><p>looks at the output of a Selection-Inference step <em>and</em> determines if there is sufficient information to answer the question.</p></blockquote><blockquote><p>it cannot rely on knowledge embedded in its weights, but must depend on the <strong>reasoning trace</strong>.</p></blockquote><img width="567px" src="\images\paper2-2.png"/><p><strong>Two-Stage Halter</strong>:</p><ol><li>predict whether the question can be answered given the current inference and the question.</li><li>computes an answer given the final inference and minimal additional information.</li></ol><img width="567px" src="\images\paper2-3.png"/><p><strong>Value Function</strong>($LM_{value}$): </p><blockquote><p>perform a <strong>step-level</strong> beam search on the reasoning traces to find the best candidate for answering the question.</p></blockquote><hr><h3 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h3><blockquote><p>Proof Writer and a question-answering version of EntailmentBank</p></blockquote><hr><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://arxiv.org/abs/2208.14271">Faithful Reasoning Using Large Language Models</a></p>]]></content:encoded>
-      
-      
-      <category domain="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">论文精读</category>
-      
-      
-      <category domain="http://example.com/tags/reasoning%EF%BC%88chain-of-thought%EF%BC%89/">reasoning（chain-of-thought）</category>
-      
-      <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
-      
-      <category domain="http://example.com/tags/question-answering/">question-answering</category>
-      
-      
-      <comments>http://example.com/2022/10/17/paper2/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>ReAct:Synergizing Reasoning and Acting in Language Models</title>
-      <link>http://example.com/2022/10/17/paper1/</link>
-      <guid>http://example.com/2022/10/17/paper1/</guid>
-      <pubDate>Mon, 17 Oct 2022 12:00:52 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;Motivation&quot;&gt;&lt;a href=&quot;#Motivation&quot; class=&quot;headerlink&quot; title=&quot;Motivation&quot;&gt;&lt;/a&gt;Motivation&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;“chain-of-thought” reasoning&lt;/strong&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;uses its &lt;strong&gt;own internal&lt;/strong&gt; representations to generate thoughts and is &lt;strong&gt;not grounded&lt;/strong&gt; in the external 	world. This can lead to issues like &lt;strong&gt;fact hallucination&lt;/strong&gt; and &lt;strong&gt;error propagation&lt;/strong&gt; over the reasoning process.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h3><p><strong>“chain-of-thought” reasoning</strong>:</p><blockquote><p>uses its <strong>own internal</strong> representations to generate thoughts and is <strong>not grounded</strong> in the external world. This can lead to issues like <strong>fact hallucination</strong> and <strong>error propagation</strong> over the reasoning process.</p></blockquote><span id="more"></span><p><strong>planning and acting in interactive environments</strong>:</p><blockquote><p>do not employ language models to <strong>reason abstractly</strong> about high-level goals or maintain a <strong>working memory</strong> to support acting.</p></blockquote><p>There have not been studies on how <strong>reasoning and acting can be combined in a synergistic manner</strong> for general task solving.</p><hr><h3 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h3><p><strong>Action</strong>：refer to as a thought or a reasoning trace, does not affect the external environment.</p><p><strong>Thought</strong>: compose useful information by reasoning over the current context $c_t$, and update the context $c_{t+1}$  to support future reasoning or acting.</p><p><strong>PaLM-540B</strong>: is prompted with few-shot <strong>in-context examples</strong> to generate both domain-specific actions and free-form language thoughts.</p><hr><h3 id="Knowledge-Intensive-Reasoning"><a href="#Knowledge-Intensive-Reasoning" class="headerlink" title="Knowledge-Intensive Reasoning"></a><strong>Knowledge-Intensive Reasoning</strong></h3><p><strong>Datasets</strong>: HotPotQA, FEVER</p><p><strong>Actions</strong>: search[<em>entity</em>], lookup[<em>string</em>], finish[<em>answer</em>]</p><blockquote><p>only retrieve a small part. Force models to retrieve <strong>via explicit reasoning</strong> in language.</p></blockquote><p><strong>ReAct Prompting</strong>: manually compose <em>ReAct</em>-format trajectories.</p><ol><li>use a combination of thoughts that decompose questions;</li><li>extract information from Wikipedia observations;</li><li>perform commonsense or arithmetic reasoning;</li><li>guide search reformulation and synthesize the final answer</li></ol><p><strong>Baselines</strong>: Standard prompting, Chain-of-thought prompting (<em>CoT</em>) &#x2F; self-consistency (<em>CoT-SC</em>),  Acting-only prompt (<em>Act</em>)</p><p><strong>Method</strong>: incorporate <em>ReAct</em> and <em>CoT-SC</em>, let the <strong>model decide</strong> when to switch to the other method.</p><p><strong>Finetuning</strong>: consider a bootstraping approach</p><p><strong>Conclusion</strong>:</p><ol><li>Hallucination is a serious problem for <em>CoT</em>, <em>ReAct</em> is more grounded, fact-driven, and trustworthy.</li><li><em>ReAct</em> repetitively generates the previous thoughts and actions, and fails to reason about what the proper next action to take and jump out of the loop.</li></ol><hr><h3 id="Decision-Making"><a href="#Decision-Making" class="headerlink" title="Decision-Making"></a>Decision-Making</h3><p><strong>Datasets</strong>: ALFWorld, WebShop</p><p><strong>ReAct Prompting</strong>: randomly annotate three trajectories from the training set for each task type.</p><ol><li>decompose the goal</li><li>track subgoal completion</li><li>determine the next subgoal</li><li>reason via commonsense</li></ol><p><strong>Baselines</strong>: BUTLER</p><hr><h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h3><p><em>ReAct</em> combined reasoning and action using an LLM applied to an interactive environment within a closed-loop system.</p><ol><li>the thoughts is free-form and unlimited, through which human annotation can induce specific policies for the LLM to follow;</li><li>the thoughts is abstract and diverse, including memory traces, strategization and error recovery;</li><li>the thoughts is sparse, <em>ReAct</em>  can decide when to think and avoid cluttering the LLM input history.</li></ol><p>Allow a human to inspect and edit ReAct’s reasoning traces.</p><hr><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://arxiv.org/abs/2210.03629">ReAct: Synergizing Reasoning and Acting in Language Models</a></p>]]></content:encoded>
-      
-      
-      <category domain="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">论文精读</category>
-      
-      
-      <category domain="http://example.com/tags/reasoning%EF%BC%88chain-of-thought%EF%BC%89/">reasoning（chain-of-thought）</category>
-      
-      <category domain="http://example.com/tags/acting-action-plan/">acting(action plan)</category>
-      
-      <category domain="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</category>
-      
-      
-      <comments>http://example.com/2022/10/17/paper1/#disqus_thread</comments>
+      <comments>http://example.com/2022/11/20/mcmc1/#disqus_thread</comments>
       
     </item>
     
@@ -300,6 +135,109 @@
       
       
       <comments>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%BA%94%EF%BC%89/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第四章：工业化中的政府角色</title>
+      <link>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E5%9B%9B%EF%BC%89/</link>
+      <guid>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E5%9B%9B%EF%BC%89/</guid>
+      <pubDate>Sun, 16 Oct 2022 04:56:37 GMT</pubDate>
+      
+      <description>&lt;p&gt;本章以美国企业的本地高管的对话为例，讲述了&lt;strong&gt;现实世界没有黑白分明的“市场”和“政府”分界，只有利益关系环环相扣的各种组合&lt;/strong&gt;。对于大企业，不仅是技术的汇聚点和创新平台，也是行业标准的制定者和产业链核心，与政府关系历来深厚复杂。&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>本章以美国企业的本地高管的对话为例，讲述了<strong>现实世界没有黑白分明的“市场”和“政府”分界，只有利益关系环环相扣的各种组合</strong>。对于大企业，不仅是技术的汇聚点和创新平台，也是行业标准的制定者和产业链核心，与政府关系历来深厚复杂。</p><span id="more"></span><p>以液晶显示为例，现在惊人的价格下跌背后是技术进步和国产替代，这个发展过程中，地方政府的投资发挥了关键作用。当时大陆彩电行业的重头戏码是各种价格战，但是之后因为操纵市场被处罚，具有自主技术和研发能力的京东方逐渐进入人们视野。但当时上市计划失败，于是在北京市政府和国开行的协调下，9家银行组成银团提供资金，包括之后行业暴跌，也是采取股权融资的形式各种提供资金，还有京东方的两次合作都被日本夏普搅局，最后才确定在财力不足的合肥合作。</p><p>在<strong>经济发展起步阶段</strong>，资本市场和信用机制都不完整，因此<strong>以信用级别高的政府为主体来融资和投资</strong>，更为可行。通过合肥和京东合作的过程中，带动了社会资本，最后使合肥成为我国光电显示产业的中心之一。在京东方快速扩展阶段，其基本融资模式都是“扩充资本金+银团贷款”。还包括TCL华星光电，也是在政府投资推动下发展的。</p><p>现代工业的<strong>规模经济效应</strong>很强，而且还要看国内市场规模，政府投资上游产业的同时也促进下游产业的发展。京东方和华星光电等企业的崛起，带动了整个光电显示产业链向我国聚集，一旦行业聚集形成，企业自身的规模经济效应和行业整体的规模经济效应叠加，进一步降低成本。而且规模经济和产业聚集也会刺激技术创新，创新是经济持续增长的源动力，但强调自主创新不是提倡闭关锁国。</p><p>“东亚经济奇迹”就是政府帮助本土企业进入复杂度很高的行业，充分利用其中的<strong>学习效应、规模效应和技术外溢效应</strong>，迅速提升本土制造业的技术能力和国际竞争力。所谓“比较优势”即机会成本低，具有很大的不确定性。</p><p>对于光伏产业，因为光伏发电成本远高于传统能源，所以其海外需求也离不开政府补贴。在欧美市场，我国企业借助规模效应、政府补贴以及产业聚集带来的成本优势，对它们本土企业造成了不小冲击。在08年金融危机之后，出口需求锐减，市场开始逐渐想国内转移，于是中央和地方政府开始对其进行补贴推动其后续发展。</p><p>新能源的技术升级和成本下降，只有在<strong>大规模的生产和市场应用</strong>中才能逐步发生。所以新能源进入市场，第一对传统能源增加其成本，第二直接补贴新能源行业。但是政府的支持和补贴与企业成功不存在必然的因果关系，政策最多可以帮助企业降低一些财务风险和市场风险，但政府不能帮助企业在不断变化的市场中发展出足够的能力和竞争优势。在光伏产业的发展中，强调出口，当国内市场有限时，海外市场可以促进竞争，迫使企业创新。但是国际局势变幻莫测，所以<strong>不断扩大和稳定国内市场</strong>，才是行业长期发展的基础。</p><p>地方政府招商引资的优惠政策，可能会带来重复投资和产能过剩，这种供需动态匹配和调整过程中周期性的产能过剩是市场经济的常态，从而迫使企业不断创新增加竞争优势，加速优胜劣汰和技术进步。我国还有三种重要因素加剧了“重复投资”，第一发展中国家可以看到发达国家的发展过程；第二是地方政府招商引资的很多优惠和补贴；第三是地方往往追随中央的产业政策。</p><p>“重复投资”并不总是坏事，第一，当地工厂不仅提供了就业，也为当地农民转变为工人提供了学习场所和途径，<strong>“工业化”最核心的一环是把农民变为工人</strong>，这不仅仅是工作的转变，也是思想观念和生活习惯的彻底改变；第二是加剧竞争，<strong>市场经济的根本优势是可以不断试错，在竞争中优胜劣汰</strong>。所以产业政策要有退出机制，即政策本身要设计退出机制，低效企业破产退出的渠道要顺畅。然而“破产难”一直是我国经济的顽疾，债权银行不愿走破产程序，因为会暴露不良贷款，无法再掩盖风险；地方政府也不愿企业走破产程序，否则职工安置和民间借贷等一系列矛盾会公开化。</p><p>对于高科技企业的资金支持，产生了政府产业引导基金，这既是招商引资的新方式和新的产业政策工具，也是以市场化方式使用财政资金的探索。而引导基金和私募基金紧密结合，<strong>私募基金就是一群人把钱交给另一群人去管理和投资，分享投资收益</strong>，出钱的人叫“有限合伙人”（LP），管钱和投资的人叫“普通合伙人”（GP），合作方式称为“有限合伙制”。</p><p>大多数引导基金不直接投资企业，而是做LP，把钱交给市场化的私募基金的GP去投资企业，这样有限的政府基金就可以带动更多社会资本投资目标产业，实际上是借用市场力量去使用财政资金，最终投向都是“战略新兴产业”。政府引导基金发展需要有制度和政策指引，资本市场的发育要比较成熟以及一定的产业条件。</p><p>我国于05年开始首次明确国家与地方政府可以设立创业投资引导基金，07年有了法律保障，08年有了政策基础，10年和11年分别再次改革，为政府产业引导基金奠定了制度基础。14年改革后国务院开始严格限制地方政府对企业的财政补贴，其开始爆发式发展。</p><p>引导基金的困难是属于运用财政资金做风险投资的体制性困难。第一类是财政资金保值增值目标与风险投资可能亏钱之间的矛盾；第二类是财政资金的地域属性与资本无边界之间的矛盾；第三类是资本市场；第四类是激励机制，所以需要在体制内调整薪酬结构。</p><p><strong>经济发展是企业、政府、社会合力的结果</strong>，具体合作方式取决于各自占有的资源，而这些资源禀赋的分布格局由历史决定。大到经济发展模式，小到具体产业政策，必须具体问题具体分析，并根据现实变化不断调整。以信用级别高的地方政府和国企为主体、以土地为杠杆，可以撬动大量资源，加速投资进程，推动快速城市化和工业化。但同时带来的问题是，与土地相关的腐败猖獗；城市化以“地”为本，忽略了“人”，民生支出不足，教育、医疗等公共服务供给滞后；房价飞涨，债务急升；经济过度依赖投资，既表现在民众收入不高所以消费不足，也表现在过剩产能无法被国内消化、向国际输出时又引起贸易失衡和冲突。</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</category>
+      
+      
+      <category domain="http://example.com/tags/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85-%E4%B8%AD%E5%9B%BD%E6%94%BF%E5%BA%9C%E4%B8%8E%E7%BB%8F%E6%B5%8E%E5%8F%91%E5%B1%95%E3%80%8B/">《置身事内--中国政府与经济发展》</category>
+      
+      <category domain="http://example.com/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/">中国经济</category>
+      
+      
+      <comments>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E5%9B%9B%EF%BC%89/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第三章：政府投融资与债务</title>
+      <link>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/</link>
+      <guid>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/</guid>
+      <pubDate>Sun, 16 Oct 2022 04:56:30 GMT</pubDate>
+      
+      <description>&lt;p&gt;上一章提到政府的债务，本章对其详细叙述。再穷的国家也有大片的土地，土地本身并不值钱，值钱的是土地之上的经济活动。&lt;strong&gt;经济发展的奥秘之一，正是把有形资产转本成为抽象资本，从而聚合跨越空间和时间的资源&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;我国政府不但拥有城市土地，也掌控着金融系统，自然会以各种方式参与实业投资，不可能置身事外。法律规定，地方政府不能从银行贷款，所以政府想要借钱投资，需要成立专门的公司。这类公司大都是国有独资企业，一般统称为“地方政府融资平台”，突出了其融资和负债功能。&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>上一章提到政府的债务，本章对其详细叙述。再穷的国家也有大片的土地，土地本身并不值钱，值钱的是土地之上的经济活动。<strong>经济发展的奥秘之一，正是把有形资产转本成为抽象资本，从而聚合跨越空间和时间的资源</strong>。</p><p>我国政府不但拥有城市土地，也掌控着金融系统，自然会以各种方式参与实业投资，不可能置身事外。法律规定，地方政府不能从银行贷款，所以政府想要借钱投资，需要成立专门的公司。这类公司大都是国有独资企业，一般统称为“地方政府融资平台”，突出了其融资和负债功能。</p><span id="more"></span><p>书中以成都文旅集团为例说明政府融资平台类公司的典型特征，第一它持有从政府取得的大量土地使用权，因此可以撬动银行贷款和其他资金；第二盈利状况依赖政府补贴，这类投资的回报不能只看项目本身，要算上它带动的经济效益和社会效益；第三，政府的隐性担保可以让企业大量借款。</p><p>大多数融资平台的主业不是旅游开发，而是工业园区开发和城市基础设施建设。比如兆润集团可以用政府注入的土地去抵押贷款，或用未来土地出让受益权去质押贷款，还可以发债，而还款来源就是管委会回购土地时支付的转让费及各种财政补贴。还有一类企业比如华夏幸福，因为中西部市县招商困难，因此完全依托民营企业来开发产业园区，甚至连招商引资也一并委托给这些企业，它们同时开发产业园区和房地产。所谓“产城结合”，“产”是旗帜，“城”是重点，需要用卖房赚到的快钱去支持产业园区运营。这种“政府和社会资本合作”，法律规定政府不能和企业直接分享税收，但可以购买企业服务，以产业发展服务费的名义来支付与企业约定的分成。</p><p>随着城市化和商品房改革，土地价值飙升，政府不仅靠土地使用权转让收入支撑起了“土地财政”，还将未来的土地收益资本化，从银行和其他渠道借入了天量资金，利用“土地金融”的巨力，推动了快速的工业化和城市化。但同时也积累了大量债务，这套模式的关键是<strong>土地价格</strong>。只要不断的投资和建设能带来持续的经济增长，城市就会扩张，地价就会上涨，就可以偿还连本带利越滚越多的债务。</p><p>大部分城市建设经费要靠财政拨款，但是分税制改革之后，城建经费非常紧张，于是需要引入银行资金。第一需要一个能借款的公司；第二是需要以赚钱的项目带动不赚钱的项目；第三是要能把土地有关的收益用起来。为解决这三个问题，城投公司就产生了，它最主要的融资方式是银行贷款，其次是发行证券。债券卖给广大投资者可以分散风险，也可以交易。</p><p>对于地方债务，层级越低的政府负担越重风险越高，中西部的债务负担和风险远高于东部。对于债务治理，第一是债务置换，用地方政府发行的公债，替换一部分融资平台公司的银行贷款和城投债，这样可以降低利率，延长期限，提升信用级别。第二是推动融资平台转型，厘清与政府之间的关系，剥离其为政府融资的功能，同时破除政府对其形成的“隐形”担保。第三是约束银行和各类金融机构，避免大量资金流入融资平台。第四是问责官员，对过度负债的行为终身追责。</p><p>事在人为，<strong>人才的选拔和激励机制</strong>是官僚体制的核心，决定着政府运作的效果，激励机制需要将干部个人得失与本地经济发展情况紧密挂钩，既要激励地方主官，也要激励基层公务员。地方主官任期有限，投资又需要资金，需要土地财政和土地金融的支持，所以城市建设面积越扩越大，但普遍不够紧凑，通勤时间长、成本高，加重了拥挤程度，也不利于环保。而且地方官员常常偏重“看得见”的工程，而相对忽视“看不见”的工程。于是改革强调要看“全面工作”。</p><p>在官员考核和晋升中，人情关系也重要，人情和业绩之间可能相互促进。虽然地方官场的人情关系对于局部的政治经济生态会有影响，但是对整体经济现象却不一定，因为地方之间有竞争关系，而且关系网中关键人物的不确定性很大。但是这只是对地方领导班子很重要，对于绝大多数政府工作人员来说，晋升机会十分渺茫，更看重实际收入以及一些工作福利。其实外部的激励机制和制度环境重要，内心的情感驱动也很重要。</p><p>政府投资和土地金融的发展模式，一大弊端就是腐败严重。第一，腐败和经济高速增长长期并存；第二，政府和市场间的关系在不断变化，腐败形式也在不断变化。腐败有两种，一种是“掠夺式”腐败，另一种是“官商勾连共同发财式”腐败，这种导致结果就是，长期偏重投资导致经济结构扭曲；扭曲投资和信贷资源配置；权钱交易扩大了贫富差距；地方上可能形成利益集团。</p><p>长期来看，反腐败是国家治理能力建设的一部分，根本的措施还是<strong>简政放权，从生产投资型政府向服务型政府逐步转型</strong>。</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</category>
+      
+      
+      <category domain="http://example.com/tags/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85-%E4%B8%AD%E5%9B%BD%E6%94%BF%E5%BA%9C%E4%B8%8E%E7%BB%8F%E6%B5%8E%E5%8F%91%E5%B1%95%E3%80%8B/">《置身事内--中国政府与经济发展》</category>
+      
+      <category domain="http://example.com/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/">中国经济</category>
+      
+      
+      <comments>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第二章：财税与政府行为</title>
+      <link>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%BA%8C%EF%BC%89/</link>
+      <guid>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%BA%8C%EF%BC%89/</guid>
+      <pubDate>Sun, 16 Oct 2022 04:56:18 GMT</pubDate>
+      
+      <description>&lt;p&gt;这一章通过两部国产电视剧《大明王朝1566》和《走向共和》引出，正好这两部电视剧我都有一点点看完，便也理解其实所有的政见冲突和人事谋略，都隐藏在账目中。就像书中说道，&lt;strong&gt;要真正理解政府行为，必然要了解财税。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;从上一章了解到政府的事权划分，而事权必然要求相应的财力支持，财政是国家治理的基础和重要支柱。中国在20世纪80年代的经济特点就是“承包”，而我国的基本国策决定了不能对所有权做出根本性变革，只能对使用权和经营权实行承包制，以提高工作积极性。&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>这一章通过两部国产电视剧《大明王朝1566》和《走向共和》引出，正好这两部电视剧我都有一点点看完，便也理解其实所有的政见冲突和人事谋略，都隐藏在账目中。就像书中说道，<strong>要真正理解政府行为，必然要了解财税。</strong></p><p>从上一章了解到政府的事权划分，而事权必然要求相应的财力支持，财政是国家治理的基础和重要支柱。中国在20世纪80年代的经济特点就是“承包”，而我国的基本国策决定了不能对所有权做出根本性变革，只能对使用权和经营权实行承包制，以提高工作积极性。</p><span id="more"></span><p>在财政承包制下，交完了中央的，剩下的都是地方自己的。因此地方政府通过大力兴办乡镇企业，获得增值税和利润。但是这样造成了“两个比重”不断降低：中央财政预算收入占全国财政预算收入的比重越来越低，而全国财政预算总收入占GDP的比重也越来越低。主要是因为承包制本身的不稳定以及预算外收入有关。这样严重削弱了国家财政能力，不利于推进改革，不存在宏观调控的能力。</p><p>1994年的分税制改革分设国税、地税两套机构，这样可以减少地方政府对税收的干扰，但是提高了税收征管成本，2018年国税和地税再次开始合并。其实分税制改革，地方阻力很大，当时中央和地方进行了多次协商。文中说道：<strong>成功的政策背后是成功的协商和妥协</strong>，而不是机械的命令与执行。最后决定在全国范围内用1993年做基年，开始分税制改革。</p><p>可是分税制改革并没有改变地方政府以经济建设为中心的任务，却减少了其手头可支配的财政资源。地方政府于是努力增加税收规模和预算外收入，造成了<strong>重视企业而相对轻视民生，重视生产而相对轻视消费</strong>的局面，地方政府在财政支出上向招商引资倾斜，而民生支出相对不足。但是2003年中央提出要求更加重视民生支出，但是基本都由地方政府承担，所以从分税制改革以来，地方政府手中能用来发展经济的资源受到了多方面的挤压。于是为了寻找资金来源，就开始了所谓的“土地财政”。</p><p>我国实行土地公有制，城市土地归国家所有，农村土地归集体所有。从1998年单位停止福利分房，以及规定了农地要想转为建设用地必须经过征地后变成国有土地之后，城市土地的真正价值开始显现。但是刚开始没有明确的制度，土地开发过程中触红线了大量腐败和混乱，2002年国土部明确四类经营用地（商业、旅游、娱乐、房地产），同时采用“招拍挂”制度。所谓“土地财政”，不仅包括巨额的土地使用权转让收入，还包括与土地使用和开发有关的各种税收收入。</p><p>从2001年所得税改革之后，地方政府开始“工业化和城市化”两手抓：一方面继续低价供应大量工业用地，另一方面限制商住用地供给。所以“土地财政”的实质是“房地产财政”。</p><p><strong>所谓经济发展，就是提高资源使用效率。</strong>而工业用地可以落地的地方很多，所以政府很难抬高地价，商住用地主要服务本地居民，更容易抬高地价。土地的资本化运作，本质是把未来的收益抵押到今天去借钱，因此地方政府的债务问题可能会比较严重。但其实如果只是债务问题，倒也不难缓解，最近几年实施了一系列财政和金融改革，实际上已经遏制住了债务的迅猛增长。但经济增速随之放缓，说明资源的使用率仍然不高。因此2020年政府要求“推进土地要素市场化配置”。</p><p>分税制改革之后，出现了“财政层层上升，事权层层下压”的局面，基层财政出现了严重的问题。十六大于是强调“统筹城乡发展”，2006年1月1日，农业税彻底废止。但这样导致基层财政维持起来就更加艰难，于是改革加大了上级的统筹和转移支付力度。第一是把农村基本公共服务开支纳入国家公共财政保障范围，由中央和地方政府共同负担；第二是在转移支付制度中加入激励机制，鼓励基层政府达成特定目标，并给予奖励；第三是基层财政资源向上一级政府统筹。</p><p>土地真正的力量还不在“土地财政”，而在<strong>以土地为抵押而撬动的银行信贷和其他各路资金</strong>。“土地财政”一旦嫁接了资本市场，加上了杠杆，就成了“土地金融”，能像滚雪球般越滚越大，推动经济飞速扩展，也造就了地方政府越滚越多的债务，引发了一系列宏观经济问题。</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</category>
+      
+      
+      <category domain="http://example.com/tags/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85-%E4%B8%AD%E5%9B%BD%E6%94%BF%E5%BA%9C%E4%B8%8E%E7%BB%8F%E6%B5%8E%E5%8F%91%E5%B1%95%E3%80%8B/">《置身事内--中国政府与经济发展》</category>
+      
+      <category domain="http://example.com/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/">中国经济</category>
+      
+      
+      <comments>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%BA%8C%EF%BC%89/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第一章：地方政府的权力与事务</title>
+      <link>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%80%EF%BC%89/</link>
+      <guid>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%80%EF%BC%89/</guid>
+      <pubDate>Sun, 16 Oct 2022 04:56:11 GMT</pubDate>
+      
+      <description>&lt;p&gt;读完第一章，让我对中国地方政府有了更加深刻的认识。正如作者所说，&lt;strong&gt;在中国脱离政府谈经济，是完全不可能的。&lt;/strong&gt;而要了解政府的治理和运作，则需要了解权力和资源在政府体系中的分布规则。&lt;/p&gt;
+&lt;p&gt;中国的五级政府管理体系为中央—省—市—县区—乡镇，又因为现实情况远比该简化的体系复杂，所以这五级体系也在不断改革中。中国是如此之大，为了维持大一统的国家，则要求维护中央权威和统一领导；为了政治体系的日常运作，又需要以地方政府为主。因此，地方政府自主权力很大。该章节中讲述了对事权划分的三种理论：&lt;strong&gt;公共服务的规模经济与边界&lt;/strong&gt;、&lt;strong&gt;信息复杂性&lt;/strong&gt;、&lt;strong&gt;激励相容&lt;/strong&gt;。&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>读完第一章，让我对中国地方政府有了更加深刻的认识。正如作者所说，<strong>在中国脱离政府谈经济，是完全不可能的。</strong>而要了解政府的治理和运作，则需要了解权力和资源在政府体系中的分布规则。</p><p>中国的五级政府管理体系为中央—省—市—县区—乡镇，又因为现实情况远比该简化的体系复杂，所以这五级体系也在不断改革中。中国是如此之大，为了维持大一统的国家，则要求维护中央权威和统一领导；为了政治体系的日常运作，又需要以地方政府为主。因此，地方政府自主权力很大。该章节中讲述了对事权划分的三种理论：<strong>公共服务的规模经济与边界</strong>、<strong>信息复杂性</strong>、<strong>激励相容</strong>。</p><span id="more"></span><p>所谓“规模经济”，即这类物品一旦生产出来，大家都能用，用的人越多就越划算，公共服务即符合这一概念。但是受制于人们获取这些服务的代价和意愿，政区不能无限扩大，即公共服务有具有边界性。</p><p>行政边界的划分跟公共服务的影响范围有关，我国实行“属地管理”，即地方事权与行政区划密不可分。并且我国的人口分布极不平衡、地理条件是行政管理的自然边界、不同地区的语言文化差异也很大，这些都是影响公共服务范围的因素。读到这我不仅感叹中国的行政区划，但同时不可避免的是行政交界处的经济发展普遍比较落后，在本省之内与主流文化隔阂，而与邻省同文化区的交流又被行政边界割裂。</p><p>同时信息对权力的影响也是巨大的，原则上，在中国，上级对下级的各项工作都有最终决策权，可以推翻下级的所有决定。但是实际权威来自信息优势，也就是说，如果下级想办某件事，只要上级不明确反对，一般都能办，即使上级反对也可以变通着干，而即使是上级明确交代的事情，如果下级不想办，那办事的效果也会有很大的弹性。所以上级要不断的向下传达，下级要不断向上汇报，平级要不断沟通。</p><p>正因为信息复杂多变，模糊不清的地方太多，而政府的繁杂事权又没有清楚的法律界定。所以体制内的实际权力和责任都高度个人化。<strong>所谓权力，实质就是在说不清楚的情况下由谁来拍板决策的问题。</strong>这也是各地区、各部门“一把手负责制”的根源之一，可能会导致专权和腐败。</p><p>对于激励相容，即如果一方想做的事，另一方既有意愿也有能力做好。因为有些事物与地方经济密不可分，而且由于垂直管理，当地政府对部门的监督和约束都没有力度。改革后因此很多部门会面临双重领导，这就需要一个很好的激励机制。并且激励相容原则不仅要让地方负责，也要与地方分享发展成果，不仅要能激励地方努力做好，还要能约束地方不要搞砸，要不要努力过头。</p><p>因此激励相容原则首先要求明确地方的权利和责任，其次是权力和资源的配置要制度化，来自外部的竞争也可以约束地方政府。</p><p>其实三大原则的<strong>共同主题都是处理不同群体的利益差别与冲突</strong>。在中国，地方政府不仅提供公共服务，也深度参与生产与分配。比如在招商引资时，对企业至关重要的生产要素，地方政府几乎有着很强的干预能力。其中包括土地、资金、劳动力、科技投入等等。因此文章再次强调，在我国，想脱离政府来了解经济，是不可能的。</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</category>
+      
+      
+      <category domain="http://example.com/tags/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85-%E4%B8%AD%E5%9B%BD%E6%94%BF%E5%BA%9C%E4%B8%8E%E7%BB%8F%E6%B5%8E%E5%8F%91%E5%B1%95%E3%80%8B/">《置身事内--中国政府与经济发展》</category>
+      
+      <category domain="http://example.com/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/">中国经济</category>
+      
+      
+      <comments>http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%80%EF%BC%89/#disqus_thread</comments>
       
     </item>
     

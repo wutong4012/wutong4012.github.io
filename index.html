@@ -165,7 +165,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/27/paper6/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/20/mcmc1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/caption.jpg">
@@ -179,7 +179,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/10/27/paper6/" class="post-title-link" itemprop="url">MOCHA:A Multi-Task Training Approach for Coherent Text Generation from Cognitive Perspective</a>
+            <a href="/2022/11/20/mcmc1/" class="post-title-link" itemprop="url">mcmc原理及实现（1）</a>
         </h2>
 
         <div class="post-meta">
@@ -192,7 +192,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-10-27 19:50:31 / 修改时间：19:53:51" itemprop="dateCreated datePublished" datetime="2022-10-27T19:50:31+08:00">2022-10-27</time>
+              <time title="创建时间：2022-11-20 12:18:07 / 修改时间：12:23:58" itemprop="dateCreated datePublished" datetime="2022-11-20T12:18:07+08:00">2022-11-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -200,7 +200,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">论文精读</span></a>
+                  <a href="/categories/%E9%87%87%E6%A0%B7%E6%96%B9%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">采样方法</span></a>
                 </span>
             </span>
 
@@ -215,433 +215,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h3><p><strong>Backbone</strong>: T5-base</p>
-<p><strong>Datasets</strong>: </p>
-<blockquote>
-<p>Reddit&#x2F;ChangeMyView(<em>argument generation</em>), Wikiplots(<em>story generation</em>), New Tork Times(<em>news article writing</em>)</p>
-</blockquote>
-<p><strong>Baselines</strong>: GPT2, T5, CONTENTPLAN, BOWPLAN,</p>
-<p><strong>Metrics</strong>: BLEU, ROUGE, METEOR</p>
+          <p>所谓统计推断，就是<strong>基于我们观察到的东西来学习我们观察不到的东西</strong>。而贝叶斯推断，就是在贝叶斯的观点下的统计推断。之所以在贝叶斯范式下，是因为贝叶斯理论表明了预先定义的知识（<strong>先验</strong>），通过观察而得到的知识（<strong>似然</strong>）和最终想要的知识（<strong>后验</strong>）的关系。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/10/27/paper6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-	
-	
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/18/paper5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/caption.jpg">
-      <meta itemprop="name" content="Victor">
-      <meta itemprop="description" content="Practice makes Perfect">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Victor' s Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/18/paper5/" class="post-title-link" itemprop="url">EVA2.0:Investigating Open-Domain Chinese Dialogue Systems with Large-Scale Pre-Training</a>
-        </h2>
-
-        <div class="post-meta">
-		
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-10-18 19:48:01 / 修改时间：19:54:00" itemprop="dateCreated datePublished" datetime="2022-10-18T19:48:01+08:00">2022-10-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">论文精读</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Models-and-Datasets"><a href="#Models-and-Datasets" class="headerlink" title="Models and Datasets"></a>Models and Datasets</h3><p><strong>WDC-Dialogue</strong>: the largest Chinese dialogue dataset</p>
-<p><strong>Chinese Dialogue Models</strong>:</p>
-<blockquote>
-<p>CDial-GPT → LCCC dataset collected from the Weibo Comments.</p>
-<p>PLATO &#x2F; PLATO-2 &#x2F; PLATO-XL</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/18/paper5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-	
-	
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/18/paper4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/caption.jpg">
-      <meta itemprop="name" content="Victor">
-      <meta itemprop="description" content="Practice makes Perfect">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Victor' s Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/18/paper4/" class="post-title-link" itemprop="url">ConceptNet infused DialoGPT for Underlying Commonsense Understanding and Reasoning in Dialogue Response Generation</a>
-        </h2>
-
-        <div class="post-meta">
-		
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-10-18 19:39:43 / 修改时间：19:54:38" itemprop="dateCreated datePublished" datetime="2022-10-18T19:39:43+08:00">2022-10-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">论文精读</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Knowledge-Graph-and-Datasets"><a href="#Knowledge-Graph-and-Datasets" class="headerlink" title="Knowledge Graph and Datasets"></a>Knowledge Graph and Datasets</h3><p><strong>ConceptNet</strong>: </p>
-<blockquote>
-<p>large-scale and multilingual commonsense knowledge graph that describes general human knowledge.</p>
-</blockquote>
-<p><strong>CommonGen</strong>: </p>
-<blockquote>
-<p>a challenging dataset which includes concepts-sentences pairs. It is widely used to explicitly test machines for the ability of generative commonsense reasoning.</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/18/paper4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-	
-	
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/18/paper3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/caption.jpg">
-      <meta itemprop="name" content="Victor">
-      <meta itemprop="description" content="Practice makes Perfect">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Victor' s Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/18/paper3/" class="post-title-link" itemprop="url">Think Before You Speak:Explicitly Generating Implicit Commonsense Knowledge for Response Generation</a>
-        </h2>
-
-        <div class="post-meta">
-		
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-10-18 19:32:48 / 修改时间：19:55:15" itemprop="dateCreated datePublished" datetime="2022-10-18T19:32:48+08:00">2022-10-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">论文精读</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Common-Dialogue-Response-Generation"><a href="#Common-Dialogue-Response-Generation" class="headerlink" title="Common Dialogue Response Generation"></a><strong>Common Dialogue Response Generation</strong></h3><p>(<em>conditional language modeling</em>)</p>
-<blockquote>
-<p>given a <em>history</em> ($H$) consisting of a sequence of $n$  dialogue turns: $X_1, X_2, …, X_n$ (each turn refers to an utterance containing a sequence of $t_i$ tokens: $x_{i,1}, x_{i,2}, …, x_{i,ti}$) and a <em>response</em> (R) sentence $Y$ comprised of a sequence of m tokens $y_1, y_2, …, y_m$.</p>
-</blockquote>
-<img width="267px" src="\images\paper3-1.png"/>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/18/paper3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-	
-	
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/17/paper2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/caption.jpg">
-      <meta itemprop="name" content="Victor">
-      <meta itemprop="description" content="Practice makes Perfect">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Victor' s Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/17/paper2/" class="post-title-link" itemprop="url">Faithful Reasoning Using Large Language Models</a>
-        </h2>
-
-        <div class="post-meta">
-		
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-10-17 20:18:48 / 修改时间：20:35:16" itemprop="dateCreated datePublished" datetime="2022-10-17T20:18:48+08:00">2022-10-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">论文精读</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h3><blockquote>
-<p>comprises two fine-tuned LMs, one for <strong>selection</strong> and one for <strong>inference</strong>. The interleaved operation of these two components has a causal structure.</p>
-</blockquote>
-<img width="267px" src="\images\paper2-1.png"/>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/17/paper2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-	
-	
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/17/paper1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/caption.jpg">
-      <meta itemprop="name" content="Victor">
-      <meta itemprop="description" content="Practice makes Perfect">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Victor' s Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/17/paper1/" class="post-title-link" itemprop="url">ReAct:Synergizing Reasoning and Acting in Language Models</a>
-        </h2>
-
-        <div class="post-meta">
-		
-	
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-10-17 20:00:52 / 修改时间：20:15:49" itemprop="dateCreated datePublished" datetime="2022-10-17T20:00:52+08:00">2022-10-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">论文精读</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h3><p><strong>“chain-of-thought” reasoning</strong>:</p>
-<blockquote>
-<p>uses its <strong>own internal</strong> representations to generate thoughts and is <strong>not grounded</strong> in the external 	world. This can lead to issues like <strong>fact hallucination</strong> and <strong>error propagation</strong> over the reasoning process.</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/17/paper1/#more" rel="contents">
+              <a class="btn" href="/2022/11/20/mcmc1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -980,11 +557,327 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E5%9B%9B%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/caption.jpg">
+      <meta itemprop="name" content="Victor">
+      <meta itemprop="description" content="Practice makes Perfect">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Victor' s Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E5%9B%9B%EF%BC%89/" class="post-title-link" itemprop="url">第四章：工业化中的政府角色</a>
+        </h2>
+
+        <div class="post-meta">
+		
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-16 12:56:37 / 修改时间：15:13:51" itemprop="dateCreated datePublished" datetime="2022-10-16T12:56:37+08:00">2022-10-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本章以美国企业的本地高管的对话为例，讲述了<strong>现实世界没有黑白分明的“市场”和“政府”分界，只有利益关系环环相扣的各种组合</strong>。对于大企业，不仅是技术的汇聚点和创新平台，也是行业标准的制定者和产业链核心，与政府关系历来深厚复杂。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E5%9B%9B%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+	
+	
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/caption.jpg">
+      <meta itemprop="name" content="Victor">
+      <meta itemprop="description" content="Practice makes Perfect">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Victor' s Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/" class="post-title-link" itemprop="url">第三章：政府投融资与债务</a>
+        </h2>
+
+        <div class="post-meta">
+		
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-16 12:56:30 / 修改时间：15:12:44" itemprop="dateCreated datePublished" datetime="2022-10-16T12:56:30+08:00">2022-10-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>上一章提到政府的债务，本章对其详细叙述。再穷的国家也有大片的土地，土地本身并不值钱，值钱的是土地之上的经济活动。<strong>经济发展的奥秘之一，正是把有形资产转本成为抽象资本，从而聚合跨越空间和时间的资源</strong>。</p>
+<p>我国政府不但拥有城市土地，也掌控着金融系统，自然会以各种方式参与实业投资，不可能置身事外。法律规定，地方政府不能从银行贷款，所以政府想要借钱投资，需要成立专门的公司。这类公司大都是国有独资企业，一般统称为“地方政府融资平台”，突出了其融资和负债功能。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+	
+	
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%BA%8C%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/caption.jpg">
+      <meta itemprop="name" content="Victor">
+      <meta itemprop="description" content="Practice makes Perfect">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Victor' s Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">第二章：财税与政府行为</a>
+        </h2>
+
+        <div class="post-meta">
+		
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-16 12:56:18 / 修改时间：15:12:18" itemprop="dateCreated datePublished" datetime="2022-10-16T12:56:18+08:00">2022-10-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这一章通过两部国产电视剧《大明王朝1566》和《走向共和》引出，正好这两部电视剧我都有一点点看完，便也理解其实所有的政见冲突和人事谋略，都隐藏在账目中。就像书中说道，<strong>要真正理解政府行为，必然要了解财税。</strong></p>
+<p>从上一章了解到政府的事权划分，而事权必然要求相应的财力支持，财政是国家治理的基础和重要支柱。中国在20世纪80年代的经济特点就是“承包”，而我国的基本国策决定了不能对所有权做出根本性变革，只能对使用权和经营权实行承包制，以提高工作积极性。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%BA%8C%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+	
+	
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/caption.jpg">
+      <meta itemprop="name" content="Victor">
+      <meta itemprop="description" content="Practice makes Perfect">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Victor' s Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">第一章：地方政府的权力与事务</a>
+        </h2>
+
+        <div class="post-meta">
+		
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-16 12:56:11 / 修改时间：15:11:41" itemprop="dateCreated datePublished" datetime="2022-10-16T12:56:11+08:00">2022-10-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>读完第一章，让我对中国地方政府有了更加深刻的认识。正如作者所说，<strong>在中国脱离政府谈经济，是完全不可能的。</strong>而要了解政府的治理和运作，则需要了解权力和资源在政府体系中的分布规则。</p>
+<p>中国的五级政府管理体系为中央—省—市—县区—乡镇，又因为现实情况远比该简化的体系复杂，所以这五级体系也在不断改革中。中国是如此之大，为了维持大一统的国家，则要求维护中央权威和统一领导；为了政治体系的日常运作，又需要以地方政府为主。因此，地方政府自主权力很大。该章节中讲述了对事权划分的三种理论：<strong>公共服务的规模经济与边界</strong>、<strong>信息复杂性</strong>、<strong>激励相容</strong>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/16/%E3%80%8A%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85%E3%80%8B%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+	
+	
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
@@ -1051,7 +944,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1064,7 +957,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1110,7 +1003,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共14.2k字</span>
+  <span class="post-count">博客全站共15.6k字</span>
 </div>
 
 
@@ -1215,59 +1108,6 @@ $(document).ready(function() {
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
