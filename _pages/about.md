@@ -39,8 +39,6 @@ My research interest includes neural machine translation and computer vision. I 
 **Tong Wu**, Yanpeng Zhao, Zilong Zheng
 
 [**Github**](https://github.com/wutong4012/CREAM)
-- CREAM can not only fine-tune within the pre-training context window size, but also alleviate the issue of the model easily getting lost in the middle. e.g., CREAM-YaRN outperforms PoSE-YaRN by over 20% on average in the “Lost in the Middle” task.
-- CREAM can further be enhanced by integrating novel designs on positional interpolation frequencies (such as Linear, NTK, Yarn, etc.), and can be extended to context window sizes of up to 256K or beyond.
 </div>
 </div>
 
@@ -52,7 +50,6 @@ My research interest includes neural machine translation and computer vision. I 
 **Tong Wu^**, Zhihao Fan^, Xiao Liu, Hai-Tao Zheng, Yeyun Gong, yelong shen, Jian Jiao, Juntao Li, zhongyu wei, Jian Guo, Nan Duan, Weizhu Chen
 
 [**Github**](https://github.com/wutong4012/AR-Diffusion)
-- AR-Diffusion ensures that the generation of tokens on the right depends on the generated ones on the left, a mechanism achieved through employing a dynamic number of denoising steps that vary based on token position. This results in tokens on the left undergoing fewer denoising steps than those on the right, thereby enabling them to generate earlier and subsequently influence the generation of tokens on the right. 
 </div>
 </div>
 
@@ -64,7 +61,6 @@ My research interest includes neural machine translation and computer vision. I 
 **Tong Wu^**, Hao Wang^, Zhongshen Zeng, Wei Wang, Hai-Tao Zheng, Jiaxing Zhang
 
 [**Github**](https://github.com/wutong4012/Self-Consistent-Learning)
-- We introduce a self-consistent learning framework in the text field that involves training a discriminator and generator cooperatively in a closed-loop manner until a scoring consensus is reached. By learning directly from selected samples, our framework are able to mitigate training instabilities such as mode collapse and non-convergence. 
 </div>
 </div>
 
