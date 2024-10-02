@@ -38,7 +38,7 @@ My research interest includes neural machine translation and computer vision. I 
 
 **Tong Wu**, Yanpeng Zhao, Zilong Zheng
 
-[**Github**](https://github.com/wutong4012/CREAM)
+[**Github Page**](https://github.com/wutong4012/CREAM)
 </div>
 </div>
 
@@ -49,7 +49,7 @@ My research interest includes neural machine translation and computer vision. I 
 
 **Tong Wu^**, Zhihao Fan^, Xiao Liu, Hai-Tao Zheng, Yeyun Gong, yelong shen, Jian Jiao, Juntao Li, zhongyu wei, Jian Guo, Nan Duan, Weizhu Chen
 
-[**Github**](https://github.com/wutong4012/AR-Diffusion)
+[**Github Page**](https://github.com/wutong4012/AR-Diffusion)
 </div>
 </div>
 
@@ -60,7 +60,7 @@ My research interest includes neural machine translation and computer vision. I 
 
 **Tong Wu^**, Hao Wang^, Zhongshen Zeng, Wei Wang, Hai-Tao Zheng, Jiaxing Zhang
 
-[**Github**](https://github.com/wutong4012/Self-Consistent-Learning)
+[**Github Page**](https://github.com/wutong4012/Self-Consistent-Learning)
 </div>
 </div>
 
