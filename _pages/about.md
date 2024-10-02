@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I work at BIGAI as a senior research engineer now in Beijing. I am now working on diffusion language model, long context and long sequence generation research.
+I work at BIGAI as a senior research engineer now in Beijing, advised by [Zilong Zheng (郑子隆)](https://zilongzheng.github.io/). I am now working on diffusion language model, long context and long sequence generation research.
 
 I graduated from Computer Technology,  Tsinghua University (清华大学) with a master’s degree and from Computer Science and Technology, Beijing Institute and Technology (北京理工大学) with a bachelor’s degree.
 
