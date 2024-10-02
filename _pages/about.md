@@ -1,13 +1,3 @@
----
-permalink: /
-title: ""
-excerpt: ""
-author_profile: true
-redirect_from: 
-  - /about/
-  - /about.html
----
-
 <span class='anchor' id='about-me'></span>
 
 I work at BIGAI as a senior research engineer now in Beijing, advised by [Zilong Zheng (郑子隆)](https://zilongzheng.github.io/). I am now working on diffusion language model, long context and long sequence generation research.
