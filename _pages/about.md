@@ -19,11 +19,9 @@ redirect_from:
 
 I work at BIGAI as a senior research engineer now in Beijing, advised by [Zilong Zheng (郑子隆)](https://zilongzheng.github.io/). I am now working on diffusion language model, long context and long sequence generation research.
 
-I graduated from Computer Technology,  Tsinghua University (清华大学) with a master’s degree and from Computer Science and Technology, Beijing Institute and Technology (北京理工大学) with a bachelor’s degree.
+I graduated from Computer Technology, Tsinghua University (清华大学) with a master’s degree and from Computer Science and Technology, Beijing Institute and Technology (北京理工大学) with a bachelor’s degree.
 
-
-
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+I have interned at X-Tech, XiZi, SenseTime, IDEA, MSRA, Deepseek, and BIGAI. At X-Tech, I was advised by Yifei Jin (金逸飞) and [Jian Li (李建)](https://scholar.google.com/citations?hl=zh-CN&user=zX7i1EkAAAAJ). At IDEA, I was advised by [Hao Wang (王昊)](https://scholar.google.com/citations?hl=zh-CN&user=KqkE1CUAAAAJ) and [Jiaxing Zhang (张家兴)](https://scholar.google.com/citations?hl=zh-CN&user=ozXuhOUAAAAJ). At MSRA, I was advised by [Zhihao Fan (范智昊)](https://libertfan.github.io/) and [Yeyun Gong (宫叶云)](https://scholar.google.com/citations?user=piUkwMYAAAAJ&hl=en). I have published some papers <a href='https://scholar.google.com/citations?user=yn0GDR4AAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a> at the top international AI conferences such as NeurIPS, ICML.
 
 
 # 🔥 News
