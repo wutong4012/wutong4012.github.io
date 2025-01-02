@@ -32,7 +32,7 @@ I have interned at X-Tech, XiZi, SenseTime<img src='images/sensetime.jpg' style=
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024</div><img src='images/cream.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Never Miss A Beat: An Efficient Recipe for Context Window Extension of Large Language Models with Consistent "Middle" Enhancement](https://arxiv.org/abs/2406.07138)
+[An Efficient Recipe for Long Context Extension via Middle-Focused Positional Encoding](https://openreview.net/forum?id=aNHEqFMS0N)
 
 **Tong Wu**, Yanpeng Zhao, Zilong Zheng
 
