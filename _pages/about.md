@@ -17,11 +17,11 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I work at BIGAI as a senior research engineer now in Beijing, advised by [Zilong Zheng (郑子隆)](https://zilongzheng.github.io/). I am now working on diffusion language model, long context and long sequence generation research.
+I work at BIGAI as a researcher now in Beijing, advised by [Zilong Zheng (郑子隆)](https://zilongzheng.github.io/). I am now working on diffusion language model, long context and long sequence generation research.
 
 I graduated from Computer Technology, Tsinghua University (清华大学) with a master’s degree and from Computer Science and Technology, Beijing Institute and Technology (北京理工大学) with a bachelor’s degree.
 
-I have interned at X-Tech, XiZi, SenseTime<img src='images/sensetime.jpg' style="width: 2em;">, IDEA<img src='images/idea.jpg' style="width: 2em;">, MSRA<img src='images/msra.png' style="width: 4em;">, Deepseek<img src='images/deepseek.png' style="width: 4em;">, and BIGAI<img src='images/bigai.jpg' style="width: 1.5em;">. At X-Tech, I was advised by Yifei Jin (金逸飞) and [Jian Li (李建)](https://scholar.google.com/citations?hl=zh-CN&user=zX7i1EkAAAAJ). At IDEA, I was advised by [Hao Wang (王昊)](https://scholar.google.com/citations?hl=zh-CN&user=KqkE1CUAAAAJ) and [Jiaxing Zhang (张家兴)](https://scholar.google.com/citations?hl=zh-CN&user=ozXuhOUAAAAJ). At MSRA, I was advised by [Zhihao Fan (范智昊)](https://libertfan.github.io/) and [Yeyun Gong (宫叶云)](https://scholar.google.com/citations?user=piUkwMYAAAAJ&hl=en). I have published some papers <a href='https://scholar.google.com/citations?user=yn0GDR4AAAAJ'><img src="https://img.shields.io/endpoint?logo=Google%20Scholar&url=https://cdn.jsdelivr.net/gh/wutong4012/wutong4012.github.io@main/citations.json&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a> at the top international AI conferences such as NeurIPS, ICML, CVPR.
+I have interned at X-Tech, XiZi, SenseTime<img src='images/sensetime.jpg' style="width: 2em;">, IDEA<img src='images/idea.jpg' style="width: 2em;">, MSRA<img src='images/msra.png' style="width: 4em;">, Deepseek<img src='images/deepseek.png' style="width: 4em;">, and BIGAI<img src='images/bigai.jpg' style="width: 1.5em;">. At X-Tech, I was advised by Yifei Jin (金逸飞) and [Jian Li (李建)](https://scholar.google.com/citations?hl=zh-CN&user=zX7i1EkAAAAJ). At IDEA, I was advised by [Hao Wang (王昊)](https://scholar.google.com/citations?hl=zh-CN&user=KqkE1CUAAAAJ) and [Jiaxing Zhang (张家兴)](https://scholar.google.com/citations?hl=zh-CN&user=ozXuhOUAAAAJ). At MSRA, I was advised by [Zhihao Fan (范智昊)](https://libertfan.github.io/) and [Yeyun Gong (宫叶云)](https://scholar.google.com/citations?user=piUkwMYAAAAJ&hl=en). I have published some papers <a href='https://scholar.google.com/citations?user=yn0GDR4AAAAJ'><img src="https://img.shields.io/endpoint?logo=Google%20Scholar&url=https://cdn.jsdelivr.net/gh/wutong4012/wutong4012.github.io@main/citations1.json&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a> at the top international AI conferences such as NeurIPS, ICML, CVPR.
 
 
 # 🔥 News
@@ -75,9 +75,9 @@ I have interned at X-Tech, XiZi, SenseTime<img src='images/sensetime.jpg' style=
 </div>
 </div>
 
+- [Absolute Zero: Reinforced Self-play Reasoning with Zero Data](https://arxiv.org/abs/2505.03335), Andrew Zhao, Yiran Wu, Yang Yue, **Tong Wu**, Quentin Xu, Yang Yue, Matthieu Lin, Shenzhi Wang, Qingyun Wu, Zilong Zheng, and Gao Huang, **NIPS 2025 Spotlight**
 - [OmniMMI: A Comprehensive Multi-modal Interaction Benchmark in Streaming Video Contexts](https://arxiv.org/abs/2503.22952), Yuxuan Wang, Yueqian Wang, Bo Chen, **Tong Wu**, Dongyan Zhao, Zilong Zheng, **CVPR 2025**
 - [Text Generation with Diffusion Language Models: A Pre-training Approach with Continuous Paragraph Denoise](https://proceedings.mlr.press/v202/lin23d.html), Zhenghao Lin, Yeyun Gong, Yelong Shen, **Tong Wu**, Zhihao Fan, Chen Lin, Nan Duan, Weizhu Chen, **ICML 2023**
-- [Absolute Zero: Reinforced Self-play Reasoning with Zero Data](https://arxiv.org/abs/2505.03335), Andrew Zhao, Yiran Wu, Yang Yue, **Tong Wu**, Quentin Xu, Yang Yue, Matthieu Lin, Shenzhi Wang, Qingyun Wu, Zilong Zheng, and Gao Huang
 - [DeepSeek LLM: Scaling Open-Source Language Models with Longtermism](https://arxiv.org/abs/2401.02954)
 
 # 📖 Educations
@@ -93,6 +93,6 @@ I have interned at X-Tech, XiZi, SenseTime<img src='images/sensetime.jpg' style=
 - *2021.01 - 2021.06*, Xizi, Beijing.
 - *2020.01 - 2020.05*, X-Tech, Beijing.
 
-
-
+# Reviewers
+ICLR, ICML, NIPS, AAAI
 
