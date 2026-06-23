@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Tong Wu (吴桐)"
-description              : "Researcher at NLCo, BIGAI. Focusing on Long Context, Diffusion and Reasoning."
+description              : "Researcher at Will, Wizard Quant. Focusing on Large Language Models."
 repository               : "wutong4012/wutong4012.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Tong Wu (吴桐)"
   avatar           : "images/me1.jpg"
-  bio              : "BIGAI"
+  bio              : "Will, Wizard"
   location         : "Beijing, China"
   employer         :
   pubmed           : 
