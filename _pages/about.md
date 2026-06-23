@@ -88,7 +88,7 @@ I have interned at X-Tech, XiZi, SenseTime<img src='images/sensetime.jpg' style=
 </div>
 
 - [Absolute Zero: Reinforced Self-play Reasoning with Zero Data](https://arxiv.org/abs/2505.03335), Andrew Zhao, Yiran Wu, Yang Yue, **Tong Wu**, Quentin Xu, Yang Yue, Matthieu Lin, Shenzhi Wang, Qingyun Wu, Zilong Zheng, and Gao Huang, **NIPS 2025 Spotlight**
-- [The AI Hippocampus: How Far are We From Human Memory?], Zixia Jia, Jiaqi Li, Yipeng Kang, Yuxuan Wang, **Tong Wu**, Quansen Wang, Xiaobo Wang, Shuyi Zhang, Junzhe Shen, Qing Li, Siyuan Qi, Yitao Liang, Di He, Zilong Zheng, Song-Chun Zhu, **TMLR 2026**
+- [The AI Hippocampus: How Far are We From Human Memory?](https://openreview.net/forum?id=Sk7pwmLuAY), Zixia Jia, Jiaqi Li, Yipeng Kang, Yuxuan Wang, **Tong Wu**, Quansen Wang, Xiaobo Wang, Shuyi Zhang, Junzhe Shen, Qing Li, Siyuan Qi, Yitao Liang, Di He, Zilong Zheng, Song-Chun Zhu, **TMLR 2025**
 - [OmniMMI: A Comprehensive Multi-modal Interaction Benchmark in Streaming Video Contexts](https://arxiv.org/abs/2503.22952), Yuxuan Wang, Yueqian Wang, Bo Chen, **Tong Wu**, Dongyan Zhao, Zilong Zheng, **CVPR 2025**
 - [Text Generation with Diffusion Language Models: A Pre-training Approach with Continuous Paragraph Denoise](https://proceedings.mlr.press/v202/lin23d.html), Zhenghao Lin, Yeyun Gong, Yelong Shen, **Tong Wu**, Zhihao Fan, Chen Lin, Nan Duan, Weizhu Chen, **ICML 2023**
 - [DeepSeek LLM: Scaling Open-Source Language Models with Longtermism](https://arxiv.org/abs/2401.02954)
