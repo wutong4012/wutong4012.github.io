@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I work at BIGAI as a researcher now in Beijing, advised by [Zilong Zheng (郑子隆)](https://zilongzheng.github.io/). I am now working on diffusion language model, long context and long sequence generation research.
+I work at Wizard Quant Will Lab as a researcher now in Beijing. Previously, I worked at BIGAI as a researcher, advised by [Zilong Zheng (郑子隆)](https://zilongzheng.github.io/). I am currently engaged in research on large language model pre-training.
 
 I graduated from Computer Technology, Tsinghua University (清华大学) with a master’s degree and from Computer Science and Technology, Beijing Institute and Technology (北京理工大学) with a bachelor’s degree.
 
@@ -25,15 +25,27 @@ I have interned at X-Tech, XiZi, SenseTime<img src='images/sensetime.jpg' style=
 
 
 # 🔥 News
+- *2026.04*: &nbsp;🎉🎉 Our paper is accepted by ICML 2026 
 - *2025.05*: &nbsp;🎉🎉 Our paper is accepted by ICML 2025 
 - *2024.09*: &nbsp;🎉🎉 Our paper is accepted by NIPS 2024 
 
 # 📝 Publications 
 
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICML 2026</div><img src='images/NPR.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[Native Parallel Reasoner: Reasoning in Parallelism via Self-Distilled Reinforcement Learning](https://arxiv.org/abs/2502.18890)
+
+**Tong Wu^**, Yang Liu^, Jun Bai^, Zixia Jia, Shuyi Zhang, Ziyong Lin, Yanting Wang, Song-Chun Zhu, Zilong Zheng
+
+[**Github Page**](https://github.com/wutong4012/Native-Parallel-Reasoner)
+</div>
+</div>
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICML 2025</div><img src='images/tokenswift.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[From Hours to Minutes: Lossless Acceleration of Ultra Long Sequence Generation up to 100K Tokens](https://arxiv.org/abs/2502.18890)
+[TokenSwift: Lossless Acceleration of Ultra Long Sequence Generation](https://proceedings.mlr.press/v267/wu25z.html)
 
 **Tong Wu^**, Junzhe Shen^, Zixia Jia, Yuxuan Wang, Zilong Zheng
 
